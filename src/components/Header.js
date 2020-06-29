@@ -1,11 +1,11 @@
 import React from "react"
+import logo from "./logo.png";
 
 function Header() {
     return (
         <header className="navbar">
-            <img src={require("./images/Yoga_logo.png")}
-                 alt="YogaImage"
-                 
+            <img src={logo}
+                 alt="logo"
             />
             <p>IyengarYogaClassGenerator</p>
         </header>

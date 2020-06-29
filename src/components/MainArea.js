@@ -3,7 +3,10 @@ import React, {Component} from "react"
 class MainArea extends Component {
     constructor() {
         super();
-        this.state ={}
+        this.state ={
+           
+
+        }
     }
     render() {
         return <h2>test</h2>;
