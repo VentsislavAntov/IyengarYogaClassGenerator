@@ -1,27 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import './YogaApp'
+import React from "react"
+import Header from "./components/Header"
+import MainArea from "./components/MainArea"
+import Footer from "./components/Footer"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edittt <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+    return(
+        <div>
+            <Header />
+            <MainArea />
+            <Footer />
+        </div>
+    )
 }
 
-export default App;
+export default App
