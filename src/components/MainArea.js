@@ -4,7 +4,7 @@ class MainArea extends Component {
     constructor() {
         super();
         this.state ={
-           
+
 
         }
     }
