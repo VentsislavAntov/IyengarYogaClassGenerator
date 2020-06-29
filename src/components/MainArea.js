@@ -10,6 +10,7 @@ class MainArea extends Component {
             excercises: []
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
@@ -17,6 +18,12 @@ class MainArea extends Component {
         this.setState({
             [name]: value
         })
+    }
+
+    //business logic - look at preferences and based on extracted excercises, do logic
+    handleSubmit(event){
+    // const randomInt = Math.floor(Math.random() * this.state.excercises)
+
     }
 
     //Needs API LINK
@@ -31,7 +38,10 @@ class MainArea extends Component {
     render() {
         return (
             <div>
-                <form classname ="yogaClass-form">
+                <img
+                    src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+                    alt="new"
+                />                <form className ="yogaClass-form" onSubmit={this.handleSubmit}>
                     <br />
                     <label>Type Preference  </label>
                     <select value={this.state.typePreference} >
@@ -72,10 +82,9 @@ class MainArea extends Component {
                     <br />
 
                     <button>Create</button>
+                    <div className="excercises">
 
-
-
-
+                    </div>
                 </form>
             </div>
         );
