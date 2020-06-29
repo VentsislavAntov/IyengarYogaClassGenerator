@@ -2,7 +2,13 @@ import React from "react"
 
 function Header() {
     return (
-        <header className="navbar"> IyengarYogaClassGenerator </header>
+        <header className="navbar">
+            <img src={require("./images/Yoga_logo.png")}
+                 alt="YogaImage"
+                 
+            />
+            <p>IyengarYogaClassGenerator</p>
+        </header>
     )
 }
 
