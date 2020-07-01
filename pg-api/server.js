@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
     next();
 })
 
-app.post("/api/new_exercise", function(request, response){
+app.post('/api/new-exercise', function(request, response){
     console.log(request.body);
 })
 

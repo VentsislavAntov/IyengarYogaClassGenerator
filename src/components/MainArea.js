@@ -38,17 +38,17 @@ class MainArea extends Component {
     addExercise(event){
        event.preventDefault();
        let data = {
-            // sanskrit_name: this.refs.sanskrit_name.value,
-            // english_name: this.refs.english_name.value,
-            // exercise_type: this.refs.exercise_type.value,
-            // difficulty: this.refs.difficulty.value,
-            // exercise_length: this.refs.exercise_length.value,
-            // url: this.refs.url.value,
-            // description: this.refs.description.value,
+            sanskrit_name: this.refs.sanskrit_name.value,
+            english_name: this.refs.english_name.value,
+            exercise_type: this.refs.exercise_type.value,
+            difficulty: this.refs.difficulty.value,
+            exercise_length: this.refs.exercise_length.value,
+            url: this.refs.url.value,
+            description: this.refs.description.value
         };
-       var request = new Request("http://localhost:3000/api/new-exercise", {
-           method: "POST",
-           header: new Headers({"Content-Type":"application/json"}),
+       var request = new Request('http://localhost:3000/api/new-exercise', {
+           method: 'POST',
+           header: new Headers({'Content-Type':'application/json'}),
            body:JSON.stringify(data)
        });
 
