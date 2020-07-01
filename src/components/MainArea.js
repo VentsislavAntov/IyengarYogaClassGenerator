@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 
 class MainArea extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             typePreference: "None",
             difficultyPreference: "None",
