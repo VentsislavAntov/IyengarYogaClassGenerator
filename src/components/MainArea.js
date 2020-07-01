@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 
 class MainArea extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             typePreference: "None",
             difficultyPreference: "None",
@@ -28,6 +28,7 @@ class MainArea extends Component {
 
     //Needs API LINK
     componentDidMount(){
+        console.log('Component successfully mounted')
         fetch("APILINK")
             .then(response => response.json())
             .then(response => {
