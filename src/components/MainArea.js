@@ -65,11 +65,14 @@ class MainArea extends Component {
     //Needs API LINK
     componentDidMount() {
         console.log('MOUNTED');
+        const that = this;
         fetch('http://localhost:3001/api/exercises')
             .then(function(response){
                 response.json()
                     .then(function(data){
-                        console.log(data);
+                        that.setState({
+                            exercises : data
+                        })
                     })
             })
     }
