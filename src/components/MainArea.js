@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import GetExercise from 'pg-api/server.js'
 
 class MainArea extends Component {
     constructor() {
@@ -8,38 +7,75 @@ class MainArea extends Component {
             typePreference: 'none',
             difficultyPreference: 'none',
             lengthPreference: 'none',
-            excercises: []
-        }
+            exercises: []
+        };
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
 
     handleChange(event) {
         const {name, value} = event.target
         this.setState({
             [name]: value
         })
+
     }
+
 
     // business logic - look at preferences and based on extracted excercises, do logic
     handleSubmit(event) {
-        let type = this.state.typePreference
-        let difficulty = this.state.difficultyPreference
+        const that = this;
+
+        console.log("start of handlesubmit")
+        let typePreference = this.state.typePreference
+        let difficultyPreference = this.state.difficultyPreference
         if (this.state.typePreference === 'none'){
-             type = '%'
+            typePreference = '%'
         }
         if (this.state.difficultyPreference === 'none'){
-            difficulty = '%'
+            difficultyPreference = '%'
         }
-        let queryProps = [type, difficulty]
-        GetExercise(queryProps)
+        let exercise_data ={j : 'posttest'} ;
+        let request = new Request('http://localhost:3001/api/get-exercise', {
+            method: 'POST',
+            headers: new Headers({'Content-Type': 'application/json'}),
+            body: JSON.stringify(exercise_data)
+        });
+        let exercises = that.state.exercises;
+        // exercises.push(exercise_data);
+        that.setState({
+            exercises:exercises
+        })
+
+        fetch(request)
+            .then(function(response){
+                response.json()
+                    .then(function(data){
+                        console.log(data)
+                    })
+                console.log(" after data")
+            })
+            .catch(function(err){
+                console.log(err)
+            })
     }
+
 
     //Needs API LINK
     componentDidMount() {
+        console.log('MOUNTED');
+        fetch('http://localhost:3001/api/exercises')
+            .then(function(response){
+                response.json()
+                    .then(function(data){
+                        console.log(data);
+                    })
+            })
     }
 
     render() {
+        let exercises = this.state.exercises;
         return (
             <div className="AppMain">
                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
@@ -80,14 +116,20 @@ class MainArea extends Component {
                     <br/>
 
                     <button>Create</button>
-                    <div className="excercises">
-                    </div>
+                    {console.log("before JSON STRINGIFY")}
+                    <pre>{JSON.stringify(exercises)}</pre>
+                    {console.log(JSON.stringify(this.state.exercises))}
+
+                    {/*    <div className="exercises">*/}
+                {/*</div>*/}
                 </form>
 
             </div>
         );
     }
 }
+
+
 
 
 export default MainArea
