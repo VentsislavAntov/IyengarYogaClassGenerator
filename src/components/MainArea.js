@@ -138,8 +138,13 @@ class MainArea extends Component {
 
                     <button>Create</button>
                     {console.log("before JSON STRINGIFY")}
-                    <pre>{JSON.stringify(exercises[0])}</pre>
+                    <pre>{JSON.stringify(exercises)}</pre>
                     {console.log(JSON.stringify(this.state.exercises))}
+
+                    <ul>
+                        {exercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
+
+                    </ul>
 
                     {/*    <div className="exercises">*/}
                 {/*</div>*/}
