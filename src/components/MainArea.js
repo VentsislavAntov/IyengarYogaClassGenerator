@@ -38,11 +38,9 @@ class MainArea extends Component {
         // if (this.state.difficultyPreference === 'none'){
         //     difficultyPreference = '%'
         // }
-        let exercise_data ={j : 'posttest'} ;
         let request = new Request('http://localhost:3001/api/get-exercise', {
-            method: 'POST',
+            method: 'GET',
             headers: new Headers({'Content-Type': 'application/json'}),
-            body: JSON.stringify(exercise_data)
         });
         let exercises = that.state.exercises;
         // exercises.push(exercise_data);
