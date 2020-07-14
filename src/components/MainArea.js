@@ -9,7 +9,8 @@ class MainArea extends Component {
             difficultyPreference: 'none',
             lengthPreference: '30',
             exercises: [],
-            userExercises: {}
+            // userExercises: [{"exerciseid":1,"sanskritname":"Siddhasana ","englishname":"Auspicious Pose","exerciseposition":"On Floor","exercisetype":"Meditate","difficulty":"Beginner","minutes":6,"url":"https://media.giphy.com/media/H3Buk8Po6el46FwnSJ/giphy.gif","exerciseprops":null,"description":"Sitting cross-legged on the floor, place the left toe on the right knee fold. Put your right foot on the left knee fold. Svastikasana is calm sitting with upright (upper) body. Stretch the legs forward. Bend the left leg in the way that you place the foot near the right thigh muscle. Bend, as it were, the right leg and press it into the space between the left thigh and calf muscles. So you will now find the two feet placed between thighs and calves of the legs."}]
+            userExercises: []
         };
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -29,16 +30,14 @@ class MainArea extends Component {
     handleSubmit(event) {
         let allExercises = this.state.exercises;
         const that = this;
-
-        console.log("start of handlesubmit")
         let typePreference = this.state.typePreference
         let difficultyPreference = this.state.difficultyPreference
-        if (this.state.typePreference === 'none'){
-            typePreference = '%'
-        }
-        if (this.state.difficultyPreference === 'none'){
-            difficultyPreference = '%'
-        }
+        // if (this.state.typePreference === 'none'){
+        //     typePreference = '%'
+        // }
+        // if (this.state.difficultyPreference === 'none'){
+        //     difficultyPreference = '%'
+        // }
         let exercise_data ={j : 'posttest'} ;
         let request = new Request('http://localhost:3001/api/get-exercise', {
             method: 'POST',
@@ -47,9 +46,9 @@ class MainArea extends Component {
         });
         let exercises = that.state.exercises;
         // exercises.push(exercise_data);
-        that.setState({
-            userExercises:exercises
-        })
+        // that.setState({
+        //     userExercises:exercises
+        // })
 
         fetch(request)
             .then(function(response){
@@ -62,6 +61,18 @@ class MainArea extends Component {
             .catch(function(err){
                 console.log(err)
             })
+
+        console.log("test submit");
+        console.log(allExercises);
+
+        const userExercisesLocal = allExercises.filter(function(exercise) {
+            return exercise.exerciseid < 3;
+        });
+
+
+        console.log("user exercises");
+        console.log(userExercisesLocal);
+        this.setState({userExercises:userExercisesLocal});
     }
 
 
@@ -137,13 +148,19 @@ class MainArea extends Component {
                     <br/>
 
                     <button>Create</button>
-                    {console.log("before JSON STRINGIFY")}
                     {/*<pre>{JSON.stringify(exercises)}</pre>*/}
-                    {console.log(JSON.stringify(this.state.exercises))}
-
+                    <br/>
+                    <br/>
                     <ul>
-                        {exercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
+                        {userExercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
                     </ul>
+
+                    <br/>
+                    <br/>
+
+                    {/*<ul>*/}
+                    {/*    {exercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}*/}
+                    {/*</ul>*/}
 
                     {/*    <div className="exercises">*/}
                 {/*</div>*/}
