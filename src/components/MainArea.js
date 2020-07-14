@@ -8,7 +8,7 @@ class MainArea extends Component {
             typePreference: 'none',
             difficultyPreference: 'none',
             lengthPreference: '30',
-            exercises: {},
+            exercises: [],
             userExercises: {}
         };
         this.handleChange = this.handleChange.bind(this)
@@ -138,12 +138,11 @@ class MainArea extends Component {
 
                     <button>Create</button>
                     {console.log("before JSON STRINGIFY")}
-                    <pre>{JSON.stringify(exercises)}</pre>
+                    {/*<pre>{JSON.stringify(exercises)}</pre>*/}
                     {console.log(JSON.stringify(this.state.exercises))}
 
                     <ul>
                         {exercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
-
                     </ul>
 
                     {/*    <div className="exercises">*/}
