@@ -4,9 +4,10 @@ class MainArea extends Component {
     constructor() {
         super();
         this.state = {
+            positionPreference: 'none',
             typePreference: 'none',
             difficultyPreference: 'none',
-            lengthPreference: 'none',
+            lengthPreference: '30',
             exercises: []
         };
         this.handleChange = this.handleChange.bind(this)
@@ -82,40 +83,58 @@ class MainArea extends Component {
         return (
             <div className="AppMain">
                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
+                    <img
+                        src="https://media.giphy.com/media/XfE0gpWG2IEUIVKWt2/giphy.gif"
+                        alt="new"
+                    />
+                    <br/>
+                    <label>Position Preference </label>
+                    <select value={this.state.positionPreference}
+                            onChange={this.handleChange}
+                            name="positionPreference">
+                        <option value='none'>None</option>
+                        <option value='onFloor'>On Floor</option>
+                        <option value='standing'>Standing</option>
+                    </select>
+                    <br/>
                     <br/>
                     <label>Type Preference </label>
                     <select value={this.state.typePreference}
-                        onChange={this.handleChange}
-                        name="typePreference">
+                            onChange={this.handleChange}
+                            name="typePreference">
                         <option value='none'>None</option>
-                        <option value='standing'>Standing</option>
-                        <option value='seated'>Seated</option>
-                        <option value='stretching'>Stretching</option>
+                        <option value='meditate'>Meditate</option>
+                        <option value='balance'>Balance</option>
+                        <option value='stretch'>Stretch</option>
+                        <option value='mix'>Mix</option>
                     </select>
 
+                    <br/>
                     <br/>
                     <label>Difficulty Preference </label>
                     <select value={this.state.difficultyPreference}
                         onChange={this.handleChange}
                         name="difficultyPreference">
                         <option value='none'>None</option>
-                        <option value='easy'>Easy</option>
-                        <option value='medium'>Medium</option>
+                        <option value='beginner'>Beginner</option>
+                        <option value='intermediate'>Intermediate</option>
                         <option value='hard'>Hard</option>
                     </select>
 
+                    <br/>
                     <br/>
                     <label>Length Preference </label>
                     <select value={this.state.lengthPreference}
                         onChange={this.handleChange}
                         name="lengthPreference">
                         <option value='none'>None</option>
-                        <option value='15-minutes'>15 Minutes</option>
-                        <option value='30-minutes'>30 Minutes</option>
-                        <option value='1-hour'>1 Hour</option>
-                        <option value='1-hour-30-minutes'>1 Hour 30 Minutes</option>
-                        <option value='2-hours'>2 Hours</option>
+                        <option value='15'>15 Minutes</option>
+                        <option value='30'>30 Minutes</option>
+                        <option value='60'>1 Hour</option>
+                        <option value='90'>1 Hour 30 Minutes</option>
+                        defaultValue={ "30 Minutes" }
                     </select>
+                    <br/>
                     <br/>
 
                     <button>Create</button>
