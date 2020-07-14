@@ -8,7 +8,8 @@ class MainArea extends Component {
             typePreference: 'none',
             difficultyPreference: 'none',
             lengthPreference: '30',
-            exercises: []
+            exercises: {},
+            userExercises: {}
         };
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,6 +27,7 @@ class MainArea extends Component {
 
     // business logic - look at preferences and based on extracted excercises, do logic
     handleSubmit(event) {
+        let allExercises = this.state.exercises;
         const that = this;
 
         console.log("start of handlesubmit")
@@ -46,7 +48,7 @@ class MainArea extends Component {
         let exercises = that.state.exercises;
         // exercises.push(exercise_data);
         that.setState({
-            exercises:exercises
+            userExercises:exercises
         })
 
         fetch(request)
@@ -79,14 +81,11 @@ class MainArea extends Component {
     }
 
     render() {
+        let userExercises = this.state.userExercises;
         let exercises = this.state.exercises;
         return (
             <div className="AppMain">
                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
-                    <img
-                        src="https://media.giphy.com/media/XfE0gpWG2IEUIVKWt2/giphy.gif"
-                        alt="new"
-                    />
                     <br/>
                     <label>Position Preference </label>
                     <select value={this.state.positionPreference}
@@ -139,7 +138,7 @@ class MainArea extends Component {
 
                     <button>Create</button>
                     {console.log("before JSON STRINGIFY")}
-                    <pre>{JSON.stringify(exercises)}</pre>
+                    <pre>{JSON.stringify(exercises[0])}</pre>
                     {console.log(JSON.stringify(this.state.exercises))}
 
                     {/*    <div className="exercises">*/}
