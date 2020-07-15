@@ -16,64 +16,6 @@ class MainArea extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-
-    handleChange(event) {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
-
-    }
-
-
-    // business logic - look at preferences and based on extracted excercises, do logic
-    handleSubmit(event) {
-        let allExercises = this.state.exercises;
-        const that = this;
-        let typePreference = this.state.typePreference
-        let difficultyPreference = this.state.difficultyPreference
-        // if (this.state.typePreference === 'none'){
-        //     typePreference = '%'
-        // }
-        // if (this.state.difficultyPreference === 'none'){
-        //     difficultyPreference = '%'
-        // }
-        let request = new Request('http://localhost:3001/api/get-exercise', {
-            method: 'GET',
-            headers: new Headers({'Content-Type': 'application/json'}),
-        });
-        let exercises = that.state.exercises;
-        // exercises.push(exercise_data);
-        // that.setState({
-        //     userExercises:exercises
-        // })
-
-        fetch(request)
-            .then(function(response){
-                response.json()
-                    .then(function(data){
-                        console.log(data)
-                    })
-                console.log(" after data")
-            })
-            .catch(function(err){
-                console.log(err)
-            })
-
-        console.log("test submit");
-        console.log(allExercises);
-
-        const userExercisesLocal = allExercises.filter(function(exercise) {
-            return exercise.exerciseid < 3;
-        });
-
-
-        console.log("user exercises");
-        console.log(userExercisesLocal);
-        this.setState({userExercises:userExercisesLocal});
-    }
-
-
     //Needs API LINK
     componentDidMount() {
         console.log('MOUNTED');
@@ -89,8 +31,67 @@ class MainArea extends Component {
             })
     }
 
+
+    handleChange(event) {
+        const {name, value} = event.target
+        this.setState({
+            [name]: value
+        })
+
+    }
+
+
+    // business logic - look at preferences and based on extracted excercises, do logic
+    handleSubmit(event) {
+        event.preventDefault()
+        let allExercises = this.state.exercises;
+        const that = this;
+
+        let positionPreference = this.state.positionPreference;
+        let typePreference = this.state.typePreference;
+        let difficultyPreference = this.state.difficultyPreference;
+        let lengthPreference = this.state.lengthPreference;
+
+
+
+        let request = new Request('http://localhost:3001/api/get-exercise', {
+            method: 'POST',
+            headers: new Headers({'Content-Type': 'application/json'}),
+        });
+
+        fetch(request)
+            .then(function(response){
+                response.json()
+                    .then(function(data){
+                        console.log(data)
+                    })
+                console.log(" after data")
+            })
+            .catch(function(err){
+                console.log(err)
+            });
+
+        console.log("test submit");
+        console.log(allExercises);
+
+        const userExercisesLocal = allExercises.filter(function(exercise) {
+            return exercise.exerciseid < 3;
+        });
+
+
+        console.log("user exercises1");
+        console.log(userExercisesLocal);
+        this.setState({userExercises:userExercisesLocal});
+        console.log("user exercises2");
+        console.log(userExercisesLocal);
+    }
+
+
+
     render() {
         let userExercises = this.state.userExercises;
+        console.log("user exercises3");
+        console.log(userExercises);
         let exercises = this.state.exercises;
         return (
             <div className="AppMain">
@@ -149,10 +150,13 @@ class MainArea extends Component {
                     {/*<pre>{JSON.stringify(exercises)}</pre>*/}
                     <br/>
                     <br/>
+                    {console.log("user exercises4")}
+                    {console.log(userExercises)}
                     <ul>
                         {userExercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
                     </ul>
-
+                    {console.log("user exercises5")}
+                    {console.log(userExercises)}
                     <br/>
                     <br/>
 
