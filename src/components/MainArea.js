@@ -43,6 +43,7 @@ class MainArea extends Component {
 
     // business logic - look at preferences and based on extracted excercises, do logic
     handleSubmit(event) {
+        event.preventDefault();
         this.setState({userExercises: []});
         // this.setState ({
         //     positionPreference: 'none',
@@ -54,10 +55,10 @@ class MainArea extends Component {
         // })
 
 
-        event.preventDefault();
+
 
         let allExercises = this.state.exercises;
-        let userExercises;
+        let userExercises = [];
         const that = this;
 
         let positionPreference = this.state.positionPreference;
