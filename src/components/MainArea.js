@@ -74,16 +74,16 @@ class MainArea extends Component {
             headers: new Headers({'Content-Type': 'application/json'}),
         });
 
-        fetch(request)
-            .then(function (response) {
-                response.json()
-                    .then(function (data) {
-                        console.log(data)
-                    })
-            })
-            .catch(function (err) {
-                console.log(err)
-            });
+        // fetch(request)
+        //     .then(function (response) {
+        //         response.json()
+        //             .then(function (data) {
+        //                 console.log(data)
+        //             })
+        //     })
+        //     .catch(function (err) {
+        //         console.log(err)
+        //     });
 
 
         // let siddhasana = allExercises.filter(function(exercise) {
@@ -97,7 +97,11 @@ class MainArea extends Component {
             }
         }
         elapsedTime = elapsedTime + siddhasana.minutes;
-        this.setState({userExercises: [...this.state.userExercises, siddhasana]});
+        this.setState(prevState=> {
+            return {
+                userExercises: prevState.userExercises.concat(siddhasana)
+            }
+        })
 
 
         for (let i = 0; i < allExercises.length; i++) {
@@ -106,6 +110,8 @@ class MainArea extends Component {
             }
         }
         elapsedTime = elapsedTime + savasana.minutes;
+
+
 
         if (positionPreference === 'none') {
             let userExercisesRandomSitting;
@@ -123,10 +129,29 @@ class MainArea extends Component {
                 let rand = getRandomInt(0, userExercisesRandomSitting.length - 1);
                 console.log("rand");
                 console.log(rand);
-                this.setState({userExercises: [...this.state.userExercises, userExercisesRandomSitting[rand]]});
-                elapsedTime = elapsedTime + userExercisesRandomSitting[rand].minutes;
-                console.log("elapsedtime first loop");
+                console.log("elapsedtime first loop before");
                 console.log(elapsedTime);
+                this.setState(prevState=> {
+                    return {
+                        userExercises: prevState.userExercises.concat(userExercisesRandomSitting[rand])
+                    }
+                })
+                // this.setState({userExercises: [...this.state.userExercises, userExercisesRandomSitting[rand]]});
+                elapsedTime = elapsedTime + userExercisesRandomSitting[rand].minutes;
+
+                console.log(" before splice userExercisesRandomSitting");
+                console.log(userExercisesRandomSitting);
+                userExercisesRandomSitting.splice(rand, 1);
+
+                console.log(" after splice userExercisesRandomSitting");
+                console.log(userExercisesRandomSitting);
+                console.log("elapsedtime first loop after");
+                console.log(elapsedTime);
+                console.log("userExercisesRandomSitting[rand]");
+                console.log(userExercisesRandomSitting[rand]);
+                console.log("userExercises");
+                console.log(this.state.userExercises);
+
             }
             userExercisesRandomStanding = allExercises.filter(function (exercise) {
                 return exercise.exerciseposition === 'Standing';
@@ -134,8 +159,13 @@ class MainArea extends Component {
 
             while ((lengthPreference - siddhasana.minutes) > elapsedTime) {
                 let rand = getRandomInt(0, userExercisesRandomStanding.length - 1);
-                this.setState({userExercises: [...this.state.userExercises, userExercisesRandomStanding[rand]]});
+                this.setState(prevState=> {
+                    return {
+                        userExercises: prevState.userExercises.concat(userExercisesRandomStanding[rand])
+                    }
+                })
                 elapsedTime = elapsedTime + userExercisesRandomStanding[rand].minutes;
+                userExercisesRandomStanding.splice(rand, 1);
                 console.log("elapsedtime first loop");
                 console.log(elapsedTime);
             }
@@ -145,7 +175,7 @@ class MainArea extends Component {
             console.log(elapsedTime);
 
 
-            this.setState({userExercises: [...this.state.userExercises, savasana]});
+            // this.setState({userExercises: [...this.state.userExercises, savasana]});
 
 
             function getRandomInt(min, max) {
@@ -157,6 +187,11 @@ class MainArea extends Component {
             // this.setState({userExercises:userExercisesLocal});
 
         }
+        this.setState(prevState=> {
+            return {
+                userExercises: prevState.userExercises.concat(savasana)
+            }
+        })
     }
 
 
