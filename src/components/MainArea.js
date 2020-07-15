@@ -21,11 +21,11 @@ class MainArea extends Component {
         console.log('MOUNTED');
         const that = this;
         fetch('http://localhost:3001/api/exercises')
-            .then(function(response){
+            .then(function (response) {
                 response.json()
-                    .then(function(data){
+                    .then(function (data) {
                         that.setState({
-                            exercises : data
+                            exercises: data
                         })
                     })
             })
@@ -43,15 +43,30 @@ class MainArea extends Component {
 
     // business logic - look at preferences and based on extracted excercises, do logic
     handleSubmit(event) {
-        event.preventDefault()
+        this.setState({userExercises: []});
+        // this.setState ({
+        //     positionPreference: 'none',
+        //     typePreference: 'none',
+        //     difficultyPreference: 'none',
+        //     lengthPreference: '30',
+        //     exercises: [],
+        //     userExercises: []
+        // })
+
+
+        event.preventDefault();
+
         let allExercises = this.state.exercises;
+        let userExercises;
         const that = this;
 
         let positionPreference = this.state.positionPreference;
         let typePreference = this.state.typePreference;
         let difficultyPreference = this.state.difficultyPreference;
         let lengthPreference = this.state.lengthPreference;
-
+        let siddhasana;
+        let savasana;
+        let elapsedTime = 0;
 
 
         let request = new Request('http://localhost:3001/api/get-exercise', {
@@ -60,38 +75,93 @@ class MainArea extends Component {
         });
 
         fetch(request)
-            .then(function(response){
+            .then(function (response) {
                 response.json()
-                    .then(function(data){
+                    .then(function (data) {
                         console.log(data)
                     })
-                console.log(" after data")
             })
-            .catch(function(err){
+            .catch(function (err) {
                 console.log(err)
             });
 
-        console.log("test submit");
-        console.log(allExercises);
 
-        const userExercisesLocal = allExercises.filter(function(exercise) {
-            return exercise.exerciseid < 3;
-        });
+        // let siddhasana = allExercises.filter(function(exercise) {
+        //     return exercise.sanskritname  === 'Siddhasana ';
+        // });
 
 
-        console.log("user exercises1");
-        console.log(userExercisesLocal);
-        this.setState({userExercises:userExercisesLocal});
-        console.log("user exercises2");
-        console.log(userExercisesLocal);
+        for (let i = 0; i < allExercises.length; i++) {
+            if (allExercises[i].sanskritname === 'Siddhasana ') {
+                siddhasana = allExercises[i];
+            }
+        }
+        elapsedTime = elapsedTime + siddhasana.minutes;
+        this.setState({userExercises: [...this.state.userExercises, siddhasana]});
+
+
+        for (let i = 0; i < allExercises.length; i++) {
+            if (allExercises[i].sanskritname === 'Savasana') {
+                savasana = allExercises[i];
+            }
+        }
+        elapsedTime = elapsedTime + savasana.minutes;
+
+        if (positionPreference === 'none') {
+            let userExercisesRandomSitting;
+            let userExercisesRandomStanding;
+            console.log("in IF");
+            userExercisesRandomSitting = allExercises.filter(function (exercise) {
+                return exercise.exerciseposition === 'On Floor';
+            });
+
+            console.log("after first filter");
+            console.log(userExercisesRandomSitting);
+
+            while (((lengthPreference - siddhasana.minutes - savasana.minutes) / 2) > (elapsedTime - siddhasana.minutes)) {
+                console.log("in first while");
+                let rand = getRandomInt(0, userExercisesRandomSitting.length - 1);
+                console.log("rand");
+                console.log(rand);
+                this.setState({userExercises: [...this.state.userExercises, userExercisesRandomSitting[rand]]});
+                elapsedTime = elapsedTime + userExercisesRandomSitting[rand].minutes;
+                console.log("elapsedtime first loop");
+                console.log(elapsedTime);
+            }
+            userExercisesRandomStanding = allExercises.filter(function (exercise) {
+                return exercise.exerciseposition === 'Standing';
+            });
+
+            while ((lengthPreference - siddhasana.minutes) > elapsedTime) {
+                let rand = getRandomInt(0, userExercisesRandomStanding.length - 1);
+                this.setState({userExercises: [...this.state.userExercises, userExercisesRandomStanding[rand]]});
+                elapsedTime = elapsedTime + userExercisesRandomStanding[rand].minutes;
+                console.log("elapsedtime first loop");
+                console.log(elapsedTime);
+            }
+
+
+            console.log("elapsedtime at end of whole thing");
+            console.log(elapsedTime);
+
+
+            this.setState({userExercises: [...this.state.userExercises, savasana]});
+
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+
+            // this.setState({userExercises:userExercisesLocal});
+
+        }
     }
-
 
 
     render() {
         let userExercises = this.state.userExercises;
-        console.log("user exercises3");
-        console.log(userExercises);
         let exercises = this.state.exercises;
         return (
             <div className="AppMain">
@@ -122,8 +192,8 @@ class MainArea extends Component {
                     <br/>
                     <label>Difficulty Preference </label>
                     <select value={this.state.difficultyPreference}
-                        onChange={this.handleChange}
-                        name="difficultyPreference">
+                            onChange={this.handleChange}
+                            name="difficultyPreference">
                         <option value='none'>None</option>
                         <option value='beginner'>Beginner</option>
                         <option value='intermediate'>Intermediate</option>
@@ -134,29 +204,24 @@ class MainArea extends Component {
                     <br/>
                     <label>Length Preference </label>
                     <select value={this.state.lengthPreference}
-                        onChange={this.handleChange}
-                        name="lengthPreference">
+                            onChange={this.handleChange}
+                            name="lengthPreference">
                         <option value='none'>None</option>
                         <option value='15'>15 Minutes</option>
                         <option value='30'>30 Minutes</option>
                         <option value='60'>1 Hour</option>
                         <option value='90'>1 Hour 30 Minutes</option>
-                        defaultValue={ "30 Minutes" }
+                        defaultValue={"30 Minutes"}
                     </select>
                     <br/>
                     <br/>
 
                     <button>Create</button>
                     {/*<pre>{JSON.stringify(exercises)}</pre>*/}
-                    <br/>
-                    <br/>
-                    {console.log("user exercises4")}
-                    {console.log(userExercises)}
+
                     <ul>
                         {userExercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
                     </ul>
-                    {console.log("user exercises5")}
-                    {console.log(userExercises)}
                     <br/>
                     <br/>
 
@@ -165,15 +230,13 @@ class MainArea extends Component {
                     {/*</ul>*/}
 
                     {/*    <div className="exercises">*/}
-                {/*</div>*/}
+                    {/*</div>*/}
                 </form>
 
             </div>
         );
     }
 }
-
-
 
 
 export default MainArea
