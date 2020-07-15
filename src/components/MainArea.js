@@ -55,9 +55,9 @@ class MainArea extends Component {
         // })
 
 
-
-
         let allExercises = this.state.exercises;
+        console.log("ALL EXERCISES")
+        console.log(allExercises)
         let userExercises = [];
         const that = this;
 
@@ -88,21 +88,21 @@ class MainArea extends Component {
 
 
         // let siddhasana = allExercises.filter(function(exercise) {
-        //     return exercise.sanskritname  === 'Siddhasana ';
+        //     return exercise.sanskritname  === 'Siddhasana';
         // });
 
 
         for (let i = 0; i < allExercises.length; i++) {
-            if (allExercises[i].sanskritname === 'Siddhasana ') {
+            if (allExercises[i].sanskritname === 'Siddhasana') {
                 siddhasana = allExercises[i];
             }
         }
         elapsedTime = elapsedTime + siddhasana.minutes;
-        this.setState(prevState=> {
+        this.setState(prevState => {
             return {
                 userExercises: prevState.userExercises.concat(siddhasana)
             }
-        })
+        });
 
 
         for (let i = 0; i < allExercises.length; i++) {
@@ -113,62 +113,110 @@ class MainArea extends Component {
         elapsedTime = elapsedTime + savasana.minutes;
 
 
-
         if (positionPreference === 'none') {
-            let userExercisesRandomSitting;
             let userExercisesRandomStanding;
+            let userExercisesRandomOnFloor;
             console.log("in IF");
-            userExercisesRandomSitting = allExercises.filter(function (exercise) {
-                return exercise.exerciseposition === 'On Floor';
-            });
-
-            console.log("after first filter");
-            console.log(userExercisesRandomSitting);
-
-            while (((lengthPreference - siddhasana.minutes - savasana.minutes) / 2) > (elapsedTime - siddhasana.minutes)) {
-                console.log("in first while");
-                let rand = getRandomInt(0, userExercisesRandomSitting.length - 1);
-                console.log("rand");
-                console.log(rand);
-                console.log("elapsedtime first loop before");
-                console.log(elapsedTime);
-                this.setState(prevState=> {
-                    return {
-                        userExercises: prevState.userExercises.concat(userExercisesRandomSitting[rand])
-                    }
-                })
-                // this.setState({userExercises: [...this.state.userExercises, userExercisesRandomSitting[rand]]});
-                elapsedTime = elapsedTime + userExercisesRandomSitting[rand].minutes;
-
-                console.log(" before splice userExercisesRandomSitting");
-                console.log(userExercisesRandomSitting);
-                userExercisesRandomSitting.splice(rand, 1);
-
-                console.log(" after splice userExercisesRandomSitting");
-                console.log(userExercisesRandomSitting);
-                console.log("elapsedtime first loop after");
-                console.log(elapsedTime);
-                console.log("userExercisesRandomSitting[rand]");
-                console.log(userExercisesRandomSitting[rand]);
-                console.log("userExercises");
-                console.log(this.state.userExercises);
-
-            }
             userExercisesRandomStanding = allExercises.filter(function (exercise) {
                 return exercise.exerciseposition === 'Standing';
             });
 
-            while ((lengthPreference - siddhasana.minutes) > elapsedTime) {
-                let rand = getRandomInt(0, userExercisesRandomStanding.length - 1);
-                this.setState(prevState=> {
+            console.log("after first filter");
+            console.log(userExercisesRandomStanding);
+            console.log(userExercisesRandomStanding.length - 1);
+
+            while (((lengthPreference - siddhasana.minutes - savasana.minutes) / 2) > (elapsedTime - siddhasana.minutes)) {
+                let addedExercise = userExercisesRandomStanding[Math.floor(Math.random() * userExercisesRandomStanding.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+
+                const index = userExercisesRandomStanding.indexOf(addedExercise);
+                if (index > -1) {
+                    userExercisesRandomStanding.splice(index, 1);
+                }
+
+                this.setState(prevState => {
                     return {
-                        userExercises: prevState.userExercises.concat(userExercisesRandomStanding[rand])
+                        userExercises: prevState.userExercises.concat(addedExercise)
                     }
-                })
-                elapsedTime = elapsedTime + userExercisesRandomStanding[rand].minutes;
-                userExercisesRandomStanding.splice(rand, 1);
-                console.log("elapsedtime first loop");
+                });
+
+
+                console.log("IN FIRST LOOP");
+                console.log(userExercisesRandomStanding);
+
+                console.log("userExercises");
+
+                console.log(userExercises);
+                console.log(userExercises.length);
+
+                console.log("lengthPreference - siddhasana.minutes - savasana.minutes) / 2");
+                console.log((lengthPreference - siddhasana.minutes - savasana.minutes) / 2);
+
+                console.log("elapsedTime - siddhasana.minutes");
+                console.log(elapsedTime - siddhasana.minutes);
+
+                console.log("elapsedTime ");
                 console.log(elapsedTime);
+            }
+
+            userExercisesRandomOnFloor = allExercises.filter(exercise =>
+                exercise.exerciseposition === 'On Floor' &&
+                exercise.sanskritname !== 'Siddhasana'
+                && exercise.sanskritname !== 'Savasana'
+            );
+
+            console.log("before 2nd loop");
+            console.log(userExercisesRandomOnFloor);
+
+
+            while ((lengthPreference - siddhasana.minutes) > elapsedTime) {
+                // let rand = getRandomInt(0, userExercisesRandomOnFloor.length - 1);
+                // this.setState(prevState => {
+                //     return {
+                //         userExercises: prevState.userExercises.concat(userExercisesRandomOnFloor[rand])
+                //     }
+                // });
+                // elapsedTime = elapsedTime + userExercisesRandomOnFloor[rand].minutes;
+                // userExercisesRandomOnFloor.splice(rand, 1);
+                // console.log("IN SECOND LOOP");
+                // console.log(userExercisesRandomOnFloor);
+                let addedExercise = userExercisesRandomOnFloor[Math.floor(Math.random() * userExercisesRandomOnFloor.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+
+                const index = userExercisesRandomOnFloor.indexOf(addedExercise);
+                if (index > -1) {
+                    userExercisesRandomOnFloor.splice(index, 1);
+                }
+
+                this.setState(prevState => {
+                    return {
+                        userExercises: prevState.userExercises.concat(addedExercise)
+                    }
+                });
+
+
+                console.log("IN FIRST LOOP");
+                console.log(userExercisesRandomOnFloor);
+
+                console.log("userExercises");
+
+                console.log(userExercises);
+                console.log(userExercises.length);
+
+                console.log("lengthPreference - siddhasana.minutes - savasana.minutes) / 2");
+                console.log((lengthPreference - siddhasana.minutes - savasana.minutes) / 2);
+
+                console.log("elapsedTime - siddhasana.minutes");
+                console.log(elapsedTime - siddhasana.minutes);
+
+                console.log("elapsedTime ");
+                console.log(elapsedTime);
+
+
             }
 
 
@@ -188,7 +236,7 @@ class MainArea extends Component {
             // this.setState({userExercises:userExercisesLocal});
 
         }
-        this.setState(prevState=> {
+        this.setState(prevState => {
             return {
                 userExercises: prevState.userExercises.concat(savasana)
             }
