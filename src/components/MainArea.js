@@ -45,12 +45,12 @@ class MainArea extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({userExercises: []});
-        this.setState({
-            propsPreference: 'none',
-            typePreference: 'none',
-            difficultyPreference: 'none',
-            lengthPreference: '30',
-        });
+        // this.setState({
+        //     propsPreference: 'none',
+        //     typePreference: 'none',
+        //     difficultyPreference: 'none',
+        //     lengthPreference: '30',
+        // });
 
 
         let allExercises = this.state.exercises;
@@ -132,6 +132,70 @@ class MainArea extends Component {
         removeItem(allExercises, sarvangasanaExercise);
 
 
+        let allExercisesDifficultyFilter = allExercises;
+        if (difficultyPreference !== 'none') {
+            allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
+                return exercise.difficulty === difficultyPreference;
+            });
+        }
+        console.log("filtertest1");
+        console.log(allExercisesDifficultyFilter);
+
+        let allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
+        if (typePreference !== 'none') {
+            allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter.filter(function (exercise) {
+                return exercise.exercisetype === typePreference;
+            });
+        }
+        console.log("filtertest2");
+        console.log(allExercisesDifficultyTypeFilter);
+
+
+
+
+        // filterArrayToNewArray(difficultyPreference, allExercises, allExercisesDifficultyFilter, "difficulty ");
+        //
+        // console.log("filter1");
+        // console.log(allExercisesDifficultyFilter);
+        // filterArrayToNewArray(typePreference, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter, 'exercisetype');
+        //
+        // console.log("filter2");
+        // console.log(allExercisesDifficultyTypeFilter);
+
+        let allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter;
+        if (propsPreference === 'none') {
+            allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter;
+        } else if (propsPreference === 'no props') {
+            allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter.filter(function (exercise) {
+                return exercise.exerciseprops === null;
+            });
+        } else if (propsPreference === 'props') {
+            allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter.filter(function (exercise) {
+                return exercise.exerciseprops !== null;
+            });
+        }
+
+        console.log("filtertest3");
+        console.log(allExercisesDifficultyTypePropsFilter);
+
+
+        if (difficultyPreference === 'none') {
+            allExercisesDifficultyFilter = allExercises;
+        } else {
+            allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
+                return exercise.exerciseposition === difficultyPreference;
+            });
+        }
+
+        if (typePreference === 'none') {
+            allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
+        } else {
+            allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
+                return exercise.exerciseposition === difficultyPreference;
+            });
+        }
+
+
         let timeBeforeSarvangasana = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes;
 
         while ((((timeBeforeSarvangasana - firstExercise) / 6) * 1) > (elapsedTime - firstExercise)) {
@@ -154,144 +218,152 @@ class MainArea extends Component {
         }
 
 
-        if (propsPreference === 'none') {
-            let userExercisesRandomStanding;
-            let userExercisesRandomOnFloor;
-            console.log("in IF");
-            userExercisesRandomStanding = allExercises.filter(function (exercise) {
-                return exercise.exerciseposition === 'Standing';
-            });
-
-            console.log("after first filter");
-            console.log(userExercisesRandomStanding);
-            console.log(userExercisesRandomStanding.length - 1);
-
-            while (((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2) > (elapsedTime - siddhasanaExercise.minutes)) {
-                let addedExercise = userExercisesRandomStanding[Math.floor(Math.random() * userExercisesRandomStanding.length)];
-                elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
-
-                const index = userExercisesRandomStanding.indexOf(addedExercise);
-                if (index > -1) {
-                    userExercisesRandomStanding.splice(index, 1);
-                }
-
-                this.setState(prevState => {
-                    return {
-                        userExercises: prevState.userExercises.concat(addedExercise)
-                    }
-                });
-
-
-                console.log("IN FIRST LOOP");
-                console.log(userExercisesRandomStanding);
-
-                console.log("userExercises");
-
-                console.log(userExercises);
-                console.log(userExercises.length);
-
-                console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
-                console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
-
-                console.log("elapsedTime - siddhasanaExercise.minutes");
-                console.log(elapsedTime - siddhasanaExercise.minutes);
-
-                console.log("elapsedTime ");
-                console.log(elapsedTime);
-            }
-
-            userExercisesRandomOnFloor = allExercises.filter(exercise =>
-                exercise.exerciseposition === 'On Floor' &&
-                exercise.sanskritname !== 'Siddhasana'
-                && exercise.sanskritname !== 'Savasana'
-            );
-
-            console.log("before 2nd loop");
-            console.log(userExercisesRandomOnFloor);
-
-
-            while ((lengthPreference - siddhasanaExercise.minutes) > elapsedTime) {
-                // let rand = getRandomInt(0, userExercisesRandomOnFloor.length - 1);
-                // this.setState(prevState => {
-                //     return {
-                //         userExercises: prevState.userExercises.concat(userExercisesRandomOnFloor[rand])
-                //     }
-                // });
-                // elapsedTime = elapsedTime + userExercisesRandomOnFloor[rand].minutes;
-                // userExercisesRandomOnFloor.splice(rand, 1);
-                // console.log("IN SECOND LOOP");
-                // console.log(userExercisesRandomOnFloor);
-                let addedExercise = userExercisesRandomOnFloor[Math.floor(Math.random() * userExercisesRandomOnFloor.length)];
-                elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
-
-                const index = userExercisesRandomOnFloor.indexOf(addedExercise);
-                if (index > -1) {
-                    userExercisesRandomOnFloor.splice(index, 1);
-                }
-
-                this.setState(prevState => {
-                    return {
-                        userExercises: prevState.userExercises.concat(addedExercise)
-                    }
-                });
-
-
-                console.log("IN FIRST LOOP");
-                console.log(userExercisesRandomOnFloor);
-
-                console.log("userExercises");
-
-                console.log(userExercises);
-                console.log(userExercises.length);
-
-                console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
-                console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
-
-                console.log("elapsedTime - siddhasanaExercise.minutes");
-                console.log(elapsedTime - siddhasanaExercise.minutes);
-
-                console.log("elapsedTime ");
-                console.log(elapsedTime);
-
-
-            }
-
-
-            console.log("elapsedtime at end of whole thing");
-            console.log(elapsedTime);
-
-
-            // this.setState({userExercises: [...this.state.userExercises, savasanaExercise]});
-
-
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min)) + min;
-            }
-
-
-            //adding sarvangasana and savasana
-            this.setState(prevState => {
-                return {
-                    userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
-                }
-            })
-        }
-
+        // if (propsPreference === 'none') {
+        //     let userExercisesRandomStanding;
+        //     let userExercisesRandomOnFloor;
+        //     console.log("in IF");
+        //     userExercisesRandomStanding = allExercises.filter(function (exercise) {
+        //         return exercise.exerciseposition === 'Standing';
+        //     });
+        //
+        //     console.log("after first filter");
+        //     console.log(userExercisesRandomStanding);
+        //     console.log(userExercisesRandomStanding.length - 1);
+        //
+        //     while (((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2) > (elapsedTime - siddhasanaExercise.minutes)) {
+        //         let addedExercise = userExercisesRandomStanding[Math.floor(Math.random() * userExercisesRandomStanding.length)];
+        //         elapsedTime = elapsedTime + addedExercise.minutes;
+        //         console.log("WHAT IS SUPPOSED TO BE DELETED");
+        //         console.log(addedExercise);
+        //
+        //         const index = userExercisesRandomStanding.indexOf(addedExercise);
+        //         if (index > -1) {
+        //             userExercisesRandomStanding.splice(index, 1);
+        //         }
+        //
+        //         this.setState(prevState => {
+        //             return {
+        //                 userExercises: prevState.userExercises.concat(addedExercise)
+        //             }
+        //         });
+        //
+        //
+        //         console.log("IN FIRST LOOP");
+        //         console.log(userExercisesRandomStanding);
+        //
+        //         console.log("userExercises");
+        //
+        //         console.log(userExercises);
+        //         console.log(userExercises.length);
+        //
+        //         console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
+        //         console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
+        //
+        //         console.log("elapsedTime - siddhasanaExercise.minutes");
+        //         console.log(elapsedTime - siddhasanaExercise.minutes);
+        //
+        //         console.log("elapsedTime ");
+        //         console.log(elapsedTime);
+        //     }
+        //
+        //     userExercisesRandomOnFloor = allExercises.filter(exercise =>
+        //         exercise.exerciseposition === 'On Floor' &&
+        //         exercise.sanskritname !== 'Siddhasana'
+        //         && exercise.sanskritname !== 'Savasana'
+        //     );
+        //
+        //     console.log("before 2nd loop");
+        //     console.log(userExercisesRandomOnFloor);
+        //
+        //
+        //     while ((lengthPreference - siddhasanaExercise.minutes) > elapsedTime) {
+        //         // let rand = getRandomInt(0, userExercisesRandomOnFloor.length - 1);
+        //         // this.setState(prevState => {
+        //         //     return {
+        //         //         userExercises: prevState.userExercises.concat(userExercisesRandomOnFloor[rand])
+        //         //     }
+        //         // });
+        //         // elapsedTime = elapsedTime + userExercisesRandomOnFloor[rand].minutes;
+        //         // userExercisesRandomOnFloor.splice(rand, 1);
+        //         // console.log("IN SECOND LOOP");
+        //         // console.log(userExercisesRandomOnFloor);
+        //         let addedExercise = userExercisesRandomOnFloor[Math.floor(Math.random() * userExercisesRandomOnFloor.length)];
+        //         elapsedTime = elapsedTime + addedExercise.minutes;
+        //         console.log("WHAT IS SUPPOSED TO BE DELETED");
+        //         console.log(addedExercise);
+        //
+        //         const index = userExercisesRandomOnFloor.indexOf(addedExercise);
+        //         if (index > -1) {
+        //             userExercisesRandomOnFloor.splice(index, 1);
+        //         }
+        //
+        //         this.setState(prevState => {
+        //             return {
+        //                 userExercises: prevState.userExercises.concat(addedExercise)
+        //             }
+        //         });
+        //
+        //
+        //         console.log("IN FIRST LOOP");
+        //         console.log(userExercisesRandomOnFloor);
+        //
+        //         console.log("userExercises");
+        //
+        //         console.log(userExercises);
+        //         console.log(userExercises.length);
+        //
+        //         console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
+        //         console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
+        //
+        //         console.log("elapsedTime - siddhasanaExercise.minutes");
+        //         console.log(elapsedTime - siddhasanaExercise.minutes);
+        //
+        //         console.log("elapsedTime ");
+        //         console.log(elapsedTime);
+        //
+        //
+        //     }
+        //
+        //
+        //     console.log("elapsedtime at end of whole thing");
+        //     console.log(elapsedTime);
+        //
+        //
+        //     // this.setState({userExercises: [...this.state.userExercises, savasanaExercise]});
+        //
+        //
+        //     function getRandomInt(min, max) {
+        //         min = Math.ceil(min);
+        //         max = Math.floor(max);
+        //         return Math.floor(Math.random() * (max - min)) + min;
+        //     }
+        //
+        //
+        //     //adding sarvangasana and savasana
+        //     this.setState(prevState => {
+        //         return {
+        //             userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
+        //         }
+        //     })
+        // }
         function removeItem(array, item) {
             const index = array.indexOf(item);
             if (index > -1) {
                 array.splice(index, 1);
             }
-
-            // this.setState({userExercises:userExercisesLocal});
-
         }
+
+        function filterArrayToNewArray(filter, oldArray, newArray, databaseFilter) {
+            if (filter === 'none') {
+                newArray = oldArray;
+            } else {
+                newArray = oldArray.filter(function (exercise) {
+                    return exercise.difficulty === filter;
+                });
+            }
+        }
+
+
     }
 
     render() {
@@ -316,10 +388,10 @@ class MainArea extends Component {
                             onChange={this.handleChange}
                             name="typePreference">
                         <option value='none'>None</option>
-                        <option value='meditate'>Meditate</option>
-                        <option value='balance'>Balance</option>
-                        <option value='stretch'>Stretch</option>
-                        <option value='mix'>Mix</option>
+                        <option value='Meditate'>Meditate</option>
+                        <option value='Balance'>Balance</option>
+                        <option value='Stretch'>Stretch</option>
+                        <option value='Mix'>Mix</option>
                     </select>
 
                     <br/>
@@ -329,9 +401,9 @@ class MainArea extends Component {
                             onChange={this.handleChange}
                             name="difficultyPreference">
                         <option value='none'>None</option>
-                        <option value='beginner'>Beginner</option>
-                        <option value='intermediate'>Intermediate</option>
-                        <option value='hard'>Hard</option>
+                        <option value='Beginner'>Beginner</option>
+                        <option value='Intermediate'>Intermediate</option>
+                        <option value='Advanced'>Advanced</option>
                     </select>
 
                     <br/>
