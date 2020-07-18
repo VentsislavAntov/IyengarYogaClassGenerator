@@ -4,7 +4,7 @@ class MainArea extends Component {
     constructor() {
         super();
         this.state = {
-            positionPreference: 'none',
+            propsPreference: 'none',
             typePreference: 'none',
             difficultyPreference: 'none',
             lengthPreference: '30',
@@ -45,28 +45,30 @@ class MainArea extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({userExercises: []});
-        // this.setState ({
-        //     positionPreference: 'none',
-        //     typePreference: 'none',
-        //     difficultyPreference: 'none',
-        //     lengthPreference: '30',
-        //     exercises: [],
-        //     userExercises: []
-        // })
+        this.setState({
+            propsPreference: 'none',
+            typePreference: 'none',
+            difficultyPreference: 'none',
+            lengthPreference: '30',
+        });
 
 
         let allExercises = this.state.exercises;
-        console.log("ALL EXERCISES")
-        console.log(allExercises)
+        // console.log("ALL EXERCISES");
+        // console.log(allExercises);
         let userExercises = [];
         const that = this;
 
-        let positionPreference = this.state.positionPreference;
+        let propsPreference = this.state.propsPreference;
         let typePreference = this.state.typePreference;
         let difficultyPreference = this.state.difficultyPreference;
         let lengthPreference = this.state.lengthPreference;
-        let siddhasana;
-        let savasana;
+        let siddhasanaExercise;
+        let swastikasanaExercise;
+        let tadasanaExercise;
+        let firstExercise;
+        let savasanaExercise;
+        let sarvangasanaExercise;
         let elapsedTime = 0;
 
 
@@ -87,33 +89,72 @@ class MainArea extends Component {
         //     });
 
 
-        // let siddhasana = allExercises.filter(function(exercise) {
+        // let siddhasanaExercise = allExercises.filter(function(exercise) {
         //     return exercise.sanskritname  === 'Siddhasana';
         // });
 
 
         for (let i = 0; i < allExercises.length; i++) {
             if (allExercises[i].sanskritname === 'Siddhasana') {
-                siddhasana = allExercises[i];
+                siddhasanaExercise = allExercises[i];
+            }
+            if (allExercises[i].sanskritname === 'Swastikasana') {
+                swastikasanaExercise = allExercises[i];
+            }
+            if (allExercises[i].sanskritname === 'Tadasana') {
+                tadasanaExercise = allExercises[i];
+            }
+            if (allExercises[i].sanskritname === 'Savasana') {
+                savasanaExercise = allExercises[i];
+            }
+            if (allExercises[i].sanskritname === 'Sarvangasana') {
+                sarvangasanaExercise = allExercises[i];
             }
         }
-        elapsedTime = elapsedTime + siddhasana.minutes;
+
+        let randInteger = Math.floor(Math.random() * Math.floor(10));
+        if (randInteger < 3) {
+            firstExercise = siddhasanaExercise;
+        } else {
+            firstExercise = swastikasanaExercise;
+        }
+        elapsedTime = elapsedTime + firstExercise.minutes + tadasanaExercise.minutes;
         this.setState(prevState => {
             return {
-                userExercises: prevState.userExercises.concat(siddhasana)
+                userExercises: prevState.userExercises.concat(firstExercise).concat(tadasanaExercise)
             }
         });
 
+        removeItem(allExercises, siddhasanaExercise);
+        removeItem(allExercises, swastikasanaExercise);
+        removeItem(allExercises, tadasanaExercise);
+        removeItem(allExercises, savasanaExercise);
+        removeItem(allExercises, sarvangasanaExercise);
 
-        for (let i = 0; i < allExercises.length; i++) {
-            if (allExercises[i].sanskritname === 'Savasana') {
-                savasana = allExercises[i];
-            }
+
+        let timeBeforeSarvangasana = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes;
+
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 1) > (elapsedTime - firstExercise)) {
+
         }
-        elapsedTime = elapsedTime + savasana.minutes;
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 2) > (elapsedTime - firstExercise)) {
+
+        }
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 3) > (elapsedTime - firstExercise)) {
+
+        }
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 4) > (elapsedTime - firstExercise)) {
+
+        }
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 5) > (elapsedTime - firstExercise)) {
+
+        }
+        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 6) > (elapsedTime - firstExercise)) {
+
+        }
 
 
-        if (positionPreference === 'none') {
+        if (propsPreference === 'none') {
             let userExercisesRandomStanding;
             let userExercisesRandomOnFloor;
             console.log("in IF");
@@ -125,7 +166,7 @@ class MainArea extends Component {
             console.log(userExercisesRandomStanding);
             console.log(userExercisesRandomStanding.length - 1);
 
-            while (((lengthPreference - siddhasana.minutes - savasana.minutes) / 2) > (elapsedTime - siddhasana.minutes)) {
+            while (((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2) > (elapsedTime - siddhasanaExercise.minutes)) {
                 let addedExercise = userExercisesRandomStanding[Math.floor(Math.random() * userExercisesRandomStanding.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
                 console.log("WHAT IS SUPPOSED TO BE DELETED");
@@ -151,11 +192,11 @@ class MainArea extends Component {
                 console.log(userExercises);
                 console.log(userExercises.length);
 
-                console.log("lengthPreference - siddhasana.minutes - savasana.minutes) / 2");
-                console.log((lengthPreference - siddhasana.minutes - savasana.minutes) / 2);
+                console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
+                console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
 
-                console.log("elapsedTime - siddhasana.minutes");
-                console.log(elapsedTime - siddhasana.minutes);
+                console.log("elapsedTime - siddhasanaExercise.minutes");
+                console.log(elapsedTime - siddhasanaExercise.minutes);
 
                 console.log("elapsedTime ");
                 console.log(elapsedTime);
@@ -171,7 +212,7 @@ class MainArea extends Component {
             console.log(userExercisesRandomOnFloor);
 
 
-            while ((lengthPreference - siddhasana.minutes) > elapsedTime) {
+            while ((lengthPreference - siddhasanaExercise.minutes) > elapsedTime) {
                 // let rand = getRandomInt(0, userExercisesRandomOnFloor.length - 1);
                 // this.setState(prevState => {
                 //     return {
@@ -207,11 +248,11 @@ class MainArea extends Component {
                 console.log(userExercises);
                 console.log(userExercises.length);
 
-                console.log("lengthPreference - siddhasana.minutes - savasana.minutes) / 2");
-                console.log((lengthPreference - siddhasana.minutes - savasana.minutes) / 2);
+                console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
+                console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
 
-                console.log("elapsedTime - siddhasana.minutes");
-                console.log(elapsedTime - siddhasana.minutes);
+                console.log("elapsedTime - siddhasanaExercise.minutes");
+                console.log(elapsedTime - siddhasanaExercise.minutes);
 
                 console.log("elapsedTime ");
                 console.log(elapsedTime);
@@ -224,7 +265,7 @@ class MainArea extends Component {
             console.log(elapsedTime);
 
 
-            // this.setState({userExercises: [...this.state.userExercises, savasana]});
+            // this.setState({userExercises: [...this.state.userExercises, savasanaExercise]});
 
 
             function getRandomInt(min, max) {
@@ -233,16 +274,25 @@ class MainArea extends Component {
                 return Math.floor(Math.random() * (max - min)) + min;
             }
 
+
+            //adding sarvangasana and savasana
+            this.setState(prevState => {
+                return {
+                    userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
+                }
+            })
+        }
+
+        function removeItem(array, item) {
+            const index = array.indexOf(item);
+            if (index > -1) {
+                array.splice(index, 1);
+            }
+
             // this.setState({userExercises:userExercisesLocal});
 
         }
-        this.setState(prevState => {
-            return {
-                userExercises: prevState.userExercises.concat(savasana)
-            }
-        })
     }
-
 
     render() {
         let userExercises = this.state.userExercises;
@@ -251,13 +301,13 @@ class MainArea extends Component {
             <div className="AppMain">
                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
                     <br/>
-                    <label>Position Preference </label>
-                    <select value={this.state.positionPreference}
+                    <label>Props Preference </label>
+                    <select value={this.state.propsPreference}
                             onChange={this.handleChange}
-                            name="positionPreference">
+                            name="propsPreference">
                         <option value='none'>None</option>
-                        <option value='onFloor'>On Floor</option>
-                        <option value='standing'>Standing</option>
+                        <option value='props'>Props</option>
+                        <option value='no props'>No Props</option>
                     </select>
                     <br/>
                     <br/>
@@ -320,6 +370,7 @@ class MainArea extends Component {
             </div>
         );
     }
+
 }
 
 
