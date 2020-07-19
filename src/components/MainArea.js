@@ -210,6 +210,10 @@ class MainArea extends Component {
         console.log(sarvangasanaExercise.minutes);
         console.log('savasanaExercise.minutes');
         console.log(savasanaExercise.minutes);
+        console.log('firstExercise.minutes');
+        console.log(firstExercise.minutes);
+        console.log('tadasanaExercise.minutes');
+        console.log(tadasanaExercise.minutes);
 
         let allExercisesDifficultyTypePropsFilterLocal;
         let allExercisesDifficultyTypeFilterLocal;
@@ -237,7 +241,7 @@ class MainArea extends Component {
         }
         console.log('after fifth while while');
         while ((timeToSplit) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
-            customFilter('Supine/Prone');
+            customFilter('Prone/Supine');
         }
         console.log('after sixth while while');
 
@@ -392,6 +396,16 @@ class MainArea extends Component {
             allExercisesLocal = allExercises.filter(function (exercise) {
                 return exercise.exerciseposition === exercisePosition;
             });
+
+            console.log("allExercisesDifficultyTypePropsFilterLocal.length");
+            console.log(allExercisesDifficultyTypePropsFilterLocal.length);
+            console.log("allExercisesDifficultyTypeFilterLocal.length");
+            console.log(allExercisesDifficultyTypeFilterLocal.length);
+            console.log("allExercisesDifficultyFilterLocal.length ");
+            console.log(allExercisesDifficultyFilterLocal.length );
+            console.log("allExercisesLocal.length");
+            console.log(allExercisesLocal.length);
+
             if (allExercisesDifficultyTypePropsFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyTypePropsFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypePropsFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
