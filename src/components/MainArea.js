@@ -113,11 +113,15 @@ class MainArea extends Component {
         }
 
         let randInteger = Math.floor(Math.random() * Math.floor(10));
+        console.log("random integer ");
+        console.log(randInteger)
         if (randInteger < 3) {
             firstExercise = siddhasanaExercise;
         } else {
             firstExercise = swastikasanaExercise;
         }
+        console.log("first exercise");
+        console.log(firstExercise)
         elapsedTime = elapsedTime + firstExercise.minutes + tadasanaExercise.minutes;
         this.setState(prevState => {
             return {
@@ -216,6 +220,14 @@ class MainArea extends Component {
         while ((((timeBeforeSarvangasana - firstExercise) / 6) * 6) > (elapsedTime - firstExercise)) {
 
         }
+
+        this.setState(prevState => {
+            return {
+                userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
+            }
+        });
+
+
 
 
         // if (propsPreference === 'none') {
