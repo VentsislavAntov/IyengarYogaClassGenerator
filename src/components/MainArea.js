@@ -154,6 +154,9 @@ class MainArea extends Component {
         console.log("filtertest2");
         console.log(allExercisesDifficultyTypeFilter);
 
+        console.log("filtertest2size");
+        console.log(allExercisesDifficultyTypeFilter.length);
+
 
         // filterArrayToNewArray(difficultyPreference, allExercises, allExercisesDifficultyFilter, "difficulty ");
         //
@@ -213,27 +216,31 @@ class MainArea extends Component {
         let allExercisesDifficultyFilterLocal;
         let allExercisesLocal;
 
-        console.log('before first while');
         while ((timeToSplit / 6) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
-            console.log('in first while before customFilter');
             customFilter('Standing Backwards Extension');
-            console.log('in first while afterCustomFilter');
         }
+        console.log('after first while while');
         while (((timeToSplit / 6)*2) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Standing Forward Bend');
         }
+        console.log('after second while while');
         while (((timeToSplit / 6)*3) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Twist');
         }
+        console.log('after third while while');
         while (((timeToSplit / 6)*4) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Forward Bend');
         }
+        console.log('after fourth while while');
         while (((timeToSplit / 6)*5) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Other');
         }
+        console.log('after fifth while while');
         while ((timeToSplit) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Supine/Prone');
         }
+        console.log('after sixth while while');
+
 
         this.setState(prevState => {
             return {
@@ -388,8 +395,6 @@ class MainArea extends Component {
             if (allExercisesDifficultyTypePropsFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyTypePropsFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypePropsFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
                 removeItem(allExercisesDifficultyTypePropsFilterLocal, addedExercise);
                 let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter,
                     allExercisesDifficultyTypePropsFilter, allExercisesLocal, allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal,
@@ -400,8 +405,6 @@ class MainArea extends Component {
             else if (allExercisesDifficultyTypeFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyTypeFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypeFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
                 let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter, allExercisesLocal,
                     allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
@@ -409,8 +412,6 @@ class MainArea extends Component {
             else if (allExercisesDifficultyFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyFilterLocal[Math.floor(Math.random() * allExercisesDifficultyFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
                 let AllArrays = [allExercises, allExercisesDifficultyFilter,allExercisesLocal,
                     allExercisesDifficultyFilterLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
@@ -418,19 +419,19 @@ class MainArea extends Component {
             else if (allExercisesLocal.length !== 0) {
                 addedExercise = allExercisesLocal[Math.floor(Math.random() * allExercisesLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
                 let AllArrays = [allExercises, allExercisesLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
             }
             else{
                 addedExercise = allExercises[Math.floor(Math.random() * allExercises.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                console.log("WHAT IS SUPPOSED TO BE DELETED");
-                console.log(addedExercise);
                 removeItem(allExercises, addedExercise);
             }
-            this.setState(prevState => {
+            console.log("WHAT IS SUPPOSED TO BE DELETED");
+            console.log(addedExercise);
+            console.log("elapsedTime");
+            console.log(elapsedTime);
+            that.setState(prevState => {
                 return {
                     userExercises: prevState.userExercises.concat(addedExercise)
                 }
