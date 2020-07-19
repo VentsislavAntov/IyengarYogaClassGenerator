@@ -155,8 +155,6 @@ class MainArea extends Component {
         console.log(allExercisesDifficultyTypeFilter);
 
 
-
-
         // filterArrayToNewArray(difficultyPreference, allExercises, allExercisesDifficultyFilter, "difficulty ");
         //
         // console.log("filter1");
@@ -183,42 +181,58 @@ class MainArea extends Component {
         console.log(allExercisesDifficultyTypePropsFilter);
 
 
-        if (difficultyPreference === 'none') {
-            allExercisesDifficultyFilter = allExercises;
-        } else {
-            allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
-                return exercise.exerciseposition === difficultyPreference;
-            });
+        // if (difficultyPreference === 'none') {
+        //     allExercisesDifficultyFilter = allExercises;
+        // } else {
+        //     allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
+        //         return exercise.exerciseposition === difficultyPreference;
+        //     });
+        // }
+        //
+        // if (typePreference === 'none') {
+        //     allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
+        // } else {
+        //     allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
+        //         return exercise.exercisetype  === typePreference;
+        //     });
+        // }
+
+
+        let timeToSplit = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes - firstExercise.minutes - tadasanaExercise.minutes;
+        console.log('timebeforeSarv');
+        console.log(timeToSplit);
+        console.log('lengthPreference');
+        console.log(lengthPreference);
+        console.log('sarvangasanaExercise.minutes');
+        console.log(sarvangasanaExercise.minutes);
+        console.log('savasanaExercise.minutes');
+        console.log(savasanaExercise.minutes);
+
+        let allExercisesDifficultyTypePropsFilterLocal;
+        let allExercisesDifficultyTypeFilterLocal;
+        let allExercisesDifficultyFilterLocal;
+        let allExercisesLocal;
+
+        console.log('before first while');
+        while ((timeToSplit / 6) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            console.log('in first while before customFilter');
+            customFilter('Standing Backwards Extension');
+            console.log('in first while afterCustomFilter');
         }
-
-        if (typePreference === 'none') {
-            allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
-        } else {
-            allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
-                return exercise.exerciseposition === difficultyPreference;
-            });
+        while (((timeToSplit / 6)*2) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            customFilter('Standing Forward Bend');
         }
-
-
-        let timeBeforeSarvangasana = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes;
-
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 1) > (elapsedTime - firstExercise)) {
-
+        while (((timeToSplit / 6)*3) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            customFilter('Seated Twist');
         }
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 2) > (elapsedTime - firstExercise)) {
-
+        while (((timeToSplit / 6)*4) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            customFilter('Seated Forward Bend');
         }
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 3) > (elapsedTime - firstExercise)) {
-
+        while (((timeToSplit / 6)*5) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            customFilter('Seated Other');
         }
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 4) > (elapsedTime - firstExercise)) {
-
-        }
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 5) > (elapsedTime - firstExercise)) {
-
-        }
-        while ((((timeBeforeSarvangasana - firstExercise) / 6) * 6) > (elapsedTime - firstExercise)) {
-
+        while ((timeToSplit) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+            customFilter('Supine/Prone');
         }
 
         this.setState(prevState => {
@@ -226,8 +240,6 @@ class MainArea extends Component {
                 userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
             }
         });
-
-
 
 
         // if (propsPreference === 'none') {
@@ -358,10 +370,83 @@ class MainArea extends Component {
         //         }
         //     })
         // }
+
+        function customFilter(exercisePosition){
+            let addedExercise;
+            allExercisesDifficultyTypePropsFilterLocal = allExercisesDifficultyTypePropsFilter.filter(function (exercise) {
+                return exercise.exerciseposition === exercisePosition;
+            });
+            allExercisesDifficultyTypeFilterLocal = allExercisesDifficultyTypeFilter.filter(function (exercise) {
+                return exercise.exerciseposition === exercisePosition;
+            });
+            allExercisesDifficultyFilterLocal = allExercisesDifficultyFilter.filter(function (exercise) {
+                return exercise.exerciseposition === exercisePosition;
+            });
+            allExercisesLocal = allExercises.filter(function (exercise) {
+                return exercise.exerciseposition === exercisePosition;
+            });
+            if (allExercisesDifficultyTypePropsFilterLocal.length !== 0) {
+                addedExercise = allExercisesDifficultyTypePropsFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypePropsFilterLocal.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+                removeItem(allExercisesDifficultyTypePropsFilterLocal, addedExercise);
+                let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter,
+                    allExercisesDifficultyTypePropsFilter, allExercisesLocal, allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal,
+                    allExercisesDifficultyTypePropsFilterLocal];
+                removeItemFromArrays(AllArrays, addedExercise);
+            }
+
+            else if (allExercisesDifficultyTypeFilterLocal.length !== 0) {
+                addedExercise = allExercisesDifficultyTypeFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypeFilterLocal.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+                let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter, allExercisesLocal,
+                    allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal];
+                removeItemFromArrays(AllArrays, addedExercise);
+            }
+            else if (allExercisesDifficultyFilterLocal.length !== 0) {
+                addedExercise = allExercisesDifficultyFilterLocal[Math.floor(Math.random() * allExercisesDifficultyFilterLocal.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+                let AllArrays = [allExercises, allExercisesDifficultyFilter,allExercisesLocal,
+                    allExercisesDifficultyFilterLocal];
+                removeItemFromArrays(AllArrays, addedExercise);
+            }
+            else if (allExercisesLocal.length !== 0) {
+                addedExercise = allExercisesLocal[Math.floor(Math.random() * allExercisesLocal.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+                let AllArrays = [allExercises, allExercisesLocal];
+                removeItemFromArrays(AllArrays, addedExercise);
+            }
+            else{
+                addedExercise = allExercises[Math.floor(Math.random() * allExercises.length)];
+                elapsedTime = elapsedTime + addedExercise.minutes;
+                console.log("WHAT IS SUPPOSED TO BE DELETED");
+                console.log(addedExercise);
+                removeItem(allExercises, addedExercise);
+            }
+            this.setState(prevState => {
+                return {
+                    userExercises: prevState.userExercises.concat(addedExercise)
+                }
+            });
+        }
+
         function removeItem(array, item) {
             const index = array.indexOf(item);
             if (index > -1) {
                 array.splice(index, 1);
+            }
+        }
+
+        function removeItemFromArrays(arrays, item) {
+            for (let i = 0; i < arrays.length; i++) {
+                removeItem(arrays[i], item)
             }
         }
 
