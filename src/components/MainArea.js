@@ -53,7 +53,6 @@ class MainArea extends Component {
         // });
 
 
-
         // console.log("ALL EXERCISES");
         // console.log(allExercises);
         let userExercises = [];
@@ -232,19 +231,19 @@ class MainArea extends Component {
             customFilter('Standing Backwards Extension');
         }
         console.log('after first while while');
-        while (((timeToSplit / 6)*2) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+        while (((timeToSplit / 6) * 2) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Standing Forward Bend');
         }
         console.log('after second while while');
-        while (((timeToSplit / 6)*3) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+        while (((timeToSplit / 6) * 3) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Twist');
         }
         console.log('after third while while');
-        while (((timeToSplit / 6)*4) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+        while (((timeToSplit / 6) * 4) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Forward Bend');
         }
         console.log('after fourth while while');
-        while (((timeToSplit / 6)*5) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
+        while (((timeToSplit / 6) * 5) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Other');
         }
         console.log('after fifth while while');
@@ -259,7 +258,6 @@ class MainArea extends Component {
                 userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
             }
         });
-
 
 
         // if (propsPreference === 'none') {
@@ -391,7 +389,7 @@ class MainArea extends Component {
         //     })
         // }
 
-        function customFilter(exercisePosition){
+        function customFilter(exercisePosition) {
             let addedExercise;
             allExercisesDifficultyTypePropsFilterLocal = allExercisesDifficultyTypePropsFilter.filter(function (exercise) {
                 return exercise.exerciseposition === exercisePosition;
@@ -411,7 +409,7 @@ class MainArea extends Component {
             console.log("allExercisesDifficultyTypeFilterLocal.length");
             console.log(allExercisesDifficultyTypeFilterLocal.length);
             console.log("allExercisesDifficultyFilterLocal.length ");
-            console.log(allExercisesDifficultyFilterLocal.length );
+            console.log(allExercisesDifficultyFilterLocal.length);
             console.log("allExercisesLocal.length");
             console.log(allExercisesLocal.length);
 
@@ -423,29 +421,24 @@ class MainArea extends Component {
                     allExercisesDifficultyTypePropsFilter, allExercisesLocal, allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal,
                     allExercisesDifficultyTypePropsFilterLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
-            }
-
-            else if (allExercisesDifficultyTypeFilterLocal.length !== 0) {
+            } else if (allExercisesDifficultyTypeFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyTypeFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypeFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
                 let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter, allExercisesLocal,
                     allExercisesDifficultyFilterLocal, allExercisesDifficultyTypeFilterLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
-            }
-            else if (allExercisesDifficultyFilterLocal.length !== 0) {
+            } else if (allExercisesDifficultyFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyFilterLocal[Math.floor(Math.random() * allExercisesDifficultyFilterLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
-                let AllArrays = [allExercises, allExercisesDifficultyFilter,allExercisesLocal,
+                let AllArrays = [allExercises, allExercisesDifficultyFilter, allExercisesLocal,
                     allExercisesDifficultyFilterLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
-            }
-            else if (allExercisesLocal.length !== 0) {
+            } else if (allExercisesLocal.length !== 0) {
                 addedExercise = allExercisesLocal[Math.floor(Math.random() * allExercisesLocal.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
                 let AllArrays = [allExercises, allExercisesLocal];
                 removeItemFromArrays(AllArrays, addedExercise);
-            }
-            else{
+            } else {
                 addedExercise = allExercises[Math.floor(Math.random() * allExercises.length)];
                 elapsedTime = elapsedTime + addedExercise.minutes;
                 removeItem(allExercises, addedExercise);
@@ -546,7 +539,17 @@ class MainArea extends Component {
                     {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
                     <ul>
-                        {userExercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}
+                        {userExercises.map(exercise => <ExerciseCard key={exercise.exerciseid}
+                                                                     sanskritname={exercise.sanskritname}
+                                                                     englishname={exercise.englishname}
+                                                                     exerciseposition={exercise.exerciseposition}
+                                                                     exercisetype={exercise.exercisetype}
+                                                                     difficulty={exercise.difficulty}
+                                                                     minutes={exercise.minutes}
+                                                                     exerciseprops={exercise.exerciseprops}
+                                                                     description={exercise.description}
+                                                                     url={exercise.url}
+                        />)}
                     </ul>
                     <br/>
                     <br/>
