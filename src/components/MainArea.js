@@ -9,7 +9,6 @@ class MainArea extends Component {
             difficultyPreference: 'none',
             lengthPreference: '30',
             exercises: [],
-            // userExercises: [{"exerciseid":1,"sanskritname":"Siddhasana ","englishname":"Auspicious Pose","exerciseposition":"On Floor","exercisetype":"Meditate","difficulty":"Beginner","minutes":6,"url":"https://media.giphy.com/media/H3Buk8Po6el46FwnSJ/giphy.gif","exerciseprops":null,"description":"Sitting cross-legged on the floor, place the left toe on the right knee fold. Put your right foot on the left knee fold. Svastikasana is calm sitting with upright (upper) body. Stretch the legs forward. Bend the left leg in the way that you place the foot near the right thigh muscle. Bend, as it were, the right leg and press it into the space between the left thigh and calf muscles. So you will now find the two feet placed between thighs and calves of the legs."}]
             userExercises: []
         };
         this.handleChange = this.handleChange.bind(this)
@@ -53,7 +52,7 @@ class MainArea extends Component {
         // });
 
 
-        let allExercises = this.state.exercises;
+
         // console.log("ALL EXERCISES");
         // console.log(allExercises);
         let userExercises = [];
@@ -77,16 +76,20 @@ class MainArea extends Component {
             headers: new Headers({'Content-Type': 'application/json'}),
         });
 
-        // fetch(request)
-        //     .then(function (response) {
-        //         response.json()
-        //             .then(function (data) {
-        //                 console.log(data)
-        //             })
-        //     })
-        //     .catch(function (err) {
-        //         console.log(err)
-        //     });
+        fetch(request)
+            .then(function (response) {
+                response.json()
+                    .then(function (data) {
+                        that.setState({
+                            exercises: data
+                        })
+                    })
+            })
+            .catch(function (err) {
+                console.log(err)
+            });
+
+        let allExercises = this.state.exercises;
 
 
         // let siddhasanaExercise = allExercises.filter(function(exercise) {
@@ -115,6 +118,10 @@ class MainArea extends Component {
         let randInteger = Math.floor(Math.random() * Math.floor(10));
         console.log("random integer ");
         console.log(randInteger)
+        console.log("siddhasanaExercise ");
+        console.log(siddhasanaExercise);
+        console.log("allExercises.length");
+        console.log(allExercises.length);
         if (randInteger < 3) {
             firstExercise = siddhasanaExercise;
         } else {
@@ -251,6 +258,7 @@ class MainArea extends Component {
                 userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
             }
         });
+
 
 
         // if (propsPreference === 'none') {
@@ -480,7 +488,6 @@ class MainArea extends Component {
 
     render() {
         let userExercises = this.state.userExercises;
-        let exercises = this.state.exercises;
         return (
             <div className="AppMain">
                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
