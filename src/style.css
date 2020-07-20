@@ -6,11 +6,24 @@ html, body{
 
 .AppMain{
     background: lavender;
+    display:flex;
+    flex-direction:column;
+    min-height: 65vh;
 }
 
+
+/*.content-wrap{*/
+/*    flex:1;*/
+/*}*/
+
 .main-footer{
+    min-width: 100%;
     color: white;
     background-color: #6441a5;
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    text-shadow: 1px 1px 2px black;
 }
 
 

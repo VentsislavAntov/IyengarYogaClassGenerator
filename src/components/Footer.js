@@ -1,45 +1,28 @@
 import React from "react"
 
 const Footer = () => {
-    return(
+    return (
         <div className="main-footer">
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    <div className="col">
-                        <h4>col/</h4>
+                    <div className="col-sm">
+                        <h4>Contact Me</h4>
                         <ul className="list-unstyled">
-                            <li>Number</li>
-                            <li>Location</li>
-                            <li>Address</li>
-                        </ul>
-                    </div>
-                    <div className="col">
-                        <h4>col2</h4>
-                        <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                        </ul>
-                    </div>
-                    <div className="col">
-                        <h4>col3</h4>
-                        <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
+                            <li>Phone: +44 7481474243</li>
+                            <li>Email: ven.antov@gmail.com</li>
+                            <li>Address: Glasgow, United Kingdom</li>
                         </ul>
                     </div>
                 </div>
-<hr/>
-                <div className="row">
-                    <p className="col-sm">
+                <div className="row text-center">
+                    <div className="col align-items-center">
+                        <hr/>
                         &copy;{new Date().getFullYear()} Copyright as per Glasgow University Policies
-                    </p>
+                    </div>
                 </div>
-
             </div>
-
-        </div>)
-}
+        </div>
+    )
+};
 
 export default Footer;
