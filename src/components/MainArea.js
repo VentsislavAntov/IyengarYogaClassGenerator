@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import ExerciseCard from "./ExerciseCard";
 
 class MainArea extends Component {
     constructor() {
