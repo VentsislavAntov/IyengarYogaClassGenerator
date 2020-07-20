@@ -1,16 +1,43 @@
-body{
+html, body{
+    height: 100%;
     margin: 0;
 }
+
+
+.AppMain{
+    background: lavender;
+}
+
+.main-footer{
+    color: white;
+    background-color: #6441a5;
+}
+
+
+/*footer{*/
+/*    background: #303036;*/
+/*    color: #d3d3d3;*/
+/*    height: 400px;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.footer-about{*/
+/*    border: 1px solid red;*/
+/*    height: 350px;*/
+/*    width: 50%;*/
+/*    margin: 50px;*/
+
+/*}*/
 
 
 header {
     height:100px;
     display: flex;
     align-items: center;
-    background: indigo;
+    background: #6441a5;
     background: -webkit-linear-gradient(to right, #2a0845, #6441a5);
     color: whitesmoke;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     text-align: center;
     justify-content: center;
 }
