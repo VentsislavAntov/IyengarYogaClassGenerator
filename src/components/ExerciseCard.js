@@ -28,7 +28,7 @@ class ExerciseCard extends Component {
         return (
             < div className="card text-center">
                 <div className="card-title">
-                    <h3> {this.props.exercise.sanskritname}</h3>
+                    <h4> {this.props.exercise.sanskritname}</h4>
                 </div>
                 < div
                     className="overflow">
@@ -47,16 +47,16 @@ class ExerciseCard extends Component {
                     <h5>Difficulty: {this.props.exercise.difficulty}</h5>
                     <h5>Length: {this.props.exercise.minutes}</h5>
                     <h5>Props: {this.props.exercise.exerciseprops}</h5>
-
+<br/>
+                        <p className="text-secondary text-justify">
+                            Description: {this.props.exercise.description}
+                        </p>
+                    </div>
 
                 </div>
 
-                <div className="card-body text-dark">
-                    <p className="card-test text-secondary">
-                        Description: {this.props.exercise.description}
-                    </p>
-                </div>
-            </div>
+
+
         )
     }
 }
