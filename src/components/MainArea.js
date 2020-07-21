@@ -1,6 +1,6 @@
 import React, {Component} from "react"
-import ExerciseCardUI from "./ExerciseCardUI";
-import ExerciseCard from "./ExerciseCard";
+import ExerciseCardUI from "./ExerciseCard";
+import ExerciseCard from './ExerciseCard';
 
 class MainArea extends Component {
     constructor() {
@@ -496,8 +496,9 @@ class MainArea extends Component {
         let userExercises = this.state.userExercises;
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
-                <div className 'col-sm-4'>
-                    <ExerciseCardUI exercise={exercise}/>
+
+                <div className="col-sm-4">
+                    <ExerciseCard exercise={exercise}/>
                 </div>
             )
         });
@@ -557,14 +558,11 @@ class MainArea extends Component {
                         <br/>
                         <br/>
 
+
                         <button>Create</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
-                        <ul>
 
-                            }}
-
-                        </ul>
 
                         <div className="container-fluid d-flex justify-content-center">
                             <div className="row">
