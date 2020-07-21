@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import ExerciseCardUI from "./ExerciseCardUI";
 import ExerciseCard from "./ExerciseCard";
 
 class MainArea extends Component {
@@ -480,8 +481,28 @@ class MainArea extends Component {
 
     }
 
+// <ExerciseCardUI key={exercise.exerciseid}*/}
+// sanskritname={exercise.sanskritname}*/}
+// englishname={exercise.englishname}*/}
+// exerciseposition={exercise.exerciseposition}*/}
+// exercisetype={exercise.exercisetype}*/}
+// difficulty={exercise.difficulty}*/}
+// minutes={exercise.minutes}*/}
+// exerciseprops={exercise.exerciseprops}*/}
+// description={exercise.description}*/}
+// url={exercise.url}/>)
+
     render() {
         let userExercises = this.state.userExercises;
+        let exerciseCards = this.state.userExercises.map(exercise => {
+            return (
+                <div className 'col-sm-4'>
+                    <ExerciseCardUI exercise={exercise}/>
+                </div>
+            )
+        });
+
+
         return (
             <div className="AppMain">
                 <div className="content-wrap">
@@ -540,27 +561,20 @@ class MainArea extends Component {
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
                         <ul>
-                            {userExercises.map(exercise => <ExerciseCard key={exercise.exerciseid}
-                                                                         sanskritname={exercise.sanskritname}
-                                                                         englishname={exercise.englishname}
-                                                                         exerciseposition={exercise.exerciseposition}
-                                                                         exercisetype={exercise.exercisetype}
-                                                                         difficulty={exercise.difficulty}
-                                                                         minutes={exercise.minutes}
-                                                                         exerciseprops={exercise.exerciseprops}
-                                                                         description={exercise.description}
-                                                                         url={exercise.url}
-                            />)}
+
+                            }}
+
                         </ul>
+
+                        <div className="container-fluid d-flex justify-content-center">
+                            <div className="row">
+                                {exerciseCards}
+                            </div>
+                        </div>
                         <br/>
                         <br/>
 
-                        {/*<ul>*/}
-                        {/*    {exercises.map(exercise => <li key={exercise.exerciseid}>{exercise.sanskritname} </li>)}*/}
-                        {/*</ul>*/}
 
-                        {/*    <div className="exercises">*/}
-                        {/*</div>*/}
                     </form>
                 </div>
             </div>

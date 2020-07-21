@@ -1,21 +1,29 @@
-import React from "react"
-
-function ExerciseCard(props) {
-    // sanskritname 	englishname 	exerciseposition 	exercisetype 	difficulty 	minutes 	url 	exerciseprops 	description
-
-    return (
-        <div className="exerciseCards">
-            Sanskritname: {props.sanskritname}
-            Englishname: {props.englishname}
-            Exercise Group : {props.exerciseposition}
-            Type: {props.exercisetype}
-            Difficulty : {props.difficulty}
-            Length: {props.minutes}
-            Props: {props.exerciseprops}
-            Description: {props.description}
-            Illustration: <img src={props.url} alt="new"/>
-        </div>
-    )
-}
-
-export default ExerciseCard
+// import React, {Component} from 'react'
+// import ExerciseCardUI from "./ExerciseCardUI";
+//
+// class ExerciseCard extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {};
+//     }
+//
+//     render() {
+//         return (
+//             <div className="container-fluid d-flex justify-content-center">
+//                 <div className="row">
+//                     <div className="col-md-4">
+//                         <ExerciseCard/>
+//                     </div>
+//                     <div className="col-md-4">
+//                         <ExerciseCard/>
+//                     </div>
+//                     <div className="col-md-4">
+//                         <ExerciseCard/>
+//                     </div>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+//
+// export default ExerciseCard;
