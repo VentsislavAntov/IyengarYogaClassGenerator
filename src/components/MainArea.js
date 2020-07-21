@@ -180,11 +180,11 @@ class MainArea extends Component {
             allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter;
         } else if (propsPreference === 'no props') {
             allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter.filter(function (exercise) {
-                return exercise.exerciseprops === null;
+                return exercise.exerciseprops === 'None';
             });
         } else if (propsPreference === 'props') {
             allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter.filter(function (exercise) {
-                return exercise.exerciseprops !== null;
+                return exercise.exerciseprops !== 'None';
             });
         }
 
