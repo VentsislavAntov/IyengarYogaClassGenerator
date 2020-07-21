@@ -12,6 +12,7 @@ body{
     text-shadow: 1px 1px 1px black;
     overflow: auto;
     white-space: nowrap;
+    color: #2a0845;
 }
 
 .card:hover{

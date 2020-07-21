@@ -26,9 +26,9 @@ class ExerciseCard extends Component {
 
     render() {
         return (
-            < div className="card text-center">
+            < div className="card text-center border-secondary mb-3">
                 <div className="card-title">
-                    <h4> {this.props.exercise.sanskritname}</h4>
+                    <h4> {this.props.number+1 + ". " +this.props.exercise.sanskritname}</h4>
                 </div>
                 < div
                     className="overflow">
@@ -45,7 +45,7 @@ class ExerciseCard extends Component {
                     <h5>Exercise Group: {this.props.exercise.exerciseposition}</h5>
                     <h5>Type: {this.props.exercise.exercisetype}</h5>
                     <h5>Difficulty: {this.props.exercise.difficulty}</h5>
-                    <h5>Length: {this.props.exercise.minutes}</h5>
+                    <h5>Length: {this.props.exercise.minutes} Minutes</h5>
                     <h5>Props: {this.props.exercise.exerciseprops}</h5>
 <br/>
                         <p className="text-secondary text-justify">

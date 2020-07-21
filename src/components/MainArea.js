@@ -498,7 +498,7 @@ class MainArea extends Component {
             return (
 
                 <div className="col-sm-4">
-                    <ExerciseCard exercise={exercise}/>
+                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}/>
                 </div>
             )
         });
