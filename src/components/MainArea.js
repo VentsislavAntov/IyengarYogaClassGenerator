@@ -559,7 +559,7 @@ class MainArea extends Component {
                         <br/>
 
 
-                        <button>Create</button>
+                        <button class="btn btn1">Generate Now</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
 

@@ -9,11 +9,13 @@ body{
 }
 
 .card-title{
+    padding: 10px;
     text-shadow: 1px 1px 1px black;
     overflow: auto;
     white-space: nowrap;
     color: #2a0845;
 }
+
 
 .card:hover{
     box-shadow:5px 10px 20px 1px rgba(0,0,0,0.253)!important;
@@ -38,5 +40,11 @@ body{
 
 .container-fluid.row{
     padding-top: 6rem;
+}
+
+.overflow{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
