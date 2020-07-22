@@ -8,6 +8,7 @@ html, body{
     background: linear-gradient(90deg, #6250a5, #8180a5);
     padding: 10px;
     margin-left: 65px;
+    margin-bottom: 45px;
     font-size: 40px;
     font-family: VT323, monospace;
     cursor: pointer;
@@ -75,6 +76,15 @@ html, body{
     margin-left: 65px;
     text-shadow: 1px 1px 1px black;
     color: #2a0845;
+}
+
+.dropdown-option{
+    background-color: beige;
+}
+
+.form-select{
+    background-color: beige;
+    border-radius: 10px;
 }
 
 /*footer{*/

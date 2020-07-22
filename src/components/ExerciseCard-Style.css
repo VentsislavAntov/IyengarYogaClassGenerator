@@ -4,14 +4,16 @@ body{
 
 .card{
     /*width: 30rem;*/
-    margin: 50px;
+    margin: 38px;
     /*align-items: center;*/
+    background-color: beige;
+    /*min-height: 1100px;*/
 }
 
 .card-title{
     padding: 10px;
     text-shadow: 1px 1px 1px black;
-    overflow: auto;
+    overflow: revert;
     white-space: nowrap;
     color: #2a0845;
 }

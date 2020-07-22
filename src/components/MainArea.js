@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import ExerciseCardUI from "./ExerciseCard";
 import ExerciseCard from './ExerciseCard';
+import Select from 'react-select'
 
 class MainArea extends Component {
     constructor() {
@@ -511,49 +512,53 @@ class MainArea extends Component {
                         <br/>
                         <div className="dropdowns">
                             <label className="dropdown-label">Props Preference </label>
-                            <select value={this.state.propsPreference}
+                            <select className = "form-select"
+                                    value={this.state.propsPreference}
                                     onChange={this.handleChange}
                                     name="propsPreference">
-                                <option value='none'>None</option>
-                                <option value='props'>Props</option>
-                                <option value='no props'>No Props</option>
+                                <option className = "dropdown-option" value='none'>None</option>
+                                <option className = "dropdown-option" value='props'>Props</option>
+                                <option className = "dropdown-option" value='no props'>No Props</option>
                             </select>
                             <br/>
                             <br/>
                             <label className="dropdown-label">Type Preference </label>
-                            <select value={this.state.typePreference}
+                            <select className = "form-select"
+                                    value={this.state.typePreference}
                                     onChange={this.handleChange}
                                     name="typePreference">
-                                <option value='none'>None</option>
-                                <option value='Meditate'>Meditate</option>
-                                <option value='Balance'>Balance</option>
-                                <option value='Stretch'>Stretch</option>
-                                <option value='Mix'>Mix</option>
+                                <option className = "dropdown-option" value='none'>None</option>
+                                <option className = "dropdown-option" value='Meditate'>Meditate</option>
+                                <option className = "dropdown-option" value='Balance'>Balance</option>
+                                <option className = "dropdown-option" value='Stretch'>Stretch</option>
+                                <option className = "dropdown-option" value='Mix'>Mix</option>
                             </select>
 
                             <br/>
                             <br/>
                             <label className="dropdown-label">Difficulty Preference </label>
-                            <select value={this.state.difficultyPreference}
+                            <select className = "form-select"
+                                    value={this.state.difficultyPreference}
                                     onChange={this.handleChange}
                                     name="difficultyPreference">
-                                <option value='none'>None</option>
-                                <option value='Beginner'>Beginner</option>
-                                <option value='Intermediate'>Intermediate</option>
-                                <option value='Advanced'>Advanced</option>
+                                <option className = "dropdown-option" value='none'>None</option>
+                                <option className = "dropdown-option" value='Beginner'>Beginner</option>
+                                <option className = "dropdown-option" value='Intermediate'>Intermediate</option>
+                                <option className = "dropdown-option" value='Advanced'>Advanced</option>
                             </select>
 
                             <br/>
                             <br/>
                             <label className="dropdown-label">Length Preference </label>
-                            <select value={this.state.lengthPreference}
+                            <select className = "form-select"
+                                    value={this.state.lengthPreference}
                                     onChange={this.handleChange}
                                     name="lengthPreference">
-                                <option value='none'>None</option>
-                                <option value='15'>15 Minutes</option>
-                                <option value='30'>30 Minutes</option>
-                                <option value='60'>1 Hour</option>
-                                <option value='90'>1 Hour 30 Minutes</option>
+                                <option className = "dropdown-option" value='none'>None</option>
+                                <option className = "dropdown-option" value='15'>15 Minutes</option>
+                                <option className = "dropdown-option" value='30'>30 Minutes</option>
+                                <option className = "dropdown-option" value='60'>1 Hour</option>
+                                <option className = "dropdown-option" value='90'>1 Hour 30 Minutes</option>
                                 defaultValue={"30 Minutes"}
                             </select>
                             <br/>
@@ -562,7 +567,6 @@ class MainArea extends Component {
 
                         <button class="btn btn1">Generate Now</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
-
 
                         <div className="container-fluid d-flex justify-content-center">
                             <div className="row">
