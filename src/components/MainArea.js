@@ -509,59 +509,59 @@ class MainArea extends Component {
                 <div className="content-wrap">
                     <form className="yogaClass-form" onSubmit={this.handleSubmit}>
                         <br/>
-                        <label>Props Preference </label>
-                        <select value={this.state.propsPreference}
-                                onChange={this.handleChange}
-                                name="propsPreference">
-                            <option value='none'>None</option>
-                            <option value='props'>Props</option>
-                            <option value='no props'>No Props</option>
-                        </select>
-                        <br/>
-                        <br/>
-                        <label>Type Preference </label>
-                        <select value={this.state.typePreference}
-                                onChange={this.handleChange}
-                                name="typePreference">
-                            <option value='none'>None</option>
-                            <option value='Meditate'>Meditate</option>
-                            <option value='Balance'>Balance</option>
-                            <option value='Stretch'>Stretch</option>
-                            <option value='Mix'>Mix</option>
-                        </select>
+                        <div className="dropdowns">
+                            <label className="dropdown-label">Props Preference </label>
+                            <select value={this.state.propsPreference}
+                                    onChange={this.handleChange}
+                                    name="propsPreference">
+                                <option value='none'>None</option>
+                                <option value='props'>Props</option>
+                                <option value='no props'>No Props</option>
+                            </select>
+                            <br/>
+                            <br/>
+                            <label className="dropdown-label">Type Preference </label>
+                            <select value={this.state.typePreference}
+                                    onChange={this.handleChange}
+                                    name="typePreference">
+                                <option value='none'>None</option>
+                                <option value='Meditate'>Meditate</option>
+                                <option value='Balance'>Balance</option>
+                                <option value='Stretch'>Stretch</option>
+                                <option value='Mix'>Mix</option>
+                            </select>
 
-                        <br/>
-                        <br/>
-                        <label>Difficulty Preference </label>
-                        <select value={this.state.difficultyPreference}
-                                onChange={this.handleChange}
-                                name="difficultyPreference">
-                            <option value='none'>None</option>
-                            <option value='Beginner'>Beginner</option>
-                            <option value='Intermediate'>Intermediate</option>
-                            <option value='Advanced'>Advanced</option>
-                        </select>
+                            <br/>
+                            <br/>
+                            <label className="dropdown-label">Difficulty Preference </label>
+                            <select value={this.state.difficultyPreference}
+                                    onChange={this.handleChange}
+                                    name="difficultyPreference">
+                                <option value='none'>None</option>
+                                <option value='Beginner'>Beginner</option>
+                                <option value='Intermediate'>Intermediate</option>
+                                <option value='Advanced'>Advanced</option>
+                            </select>
 
-                        <br/>
-                        <br/>
-                        <label>Length Preference </label>
-                        <select value={this.state.lengthPreference}
-                                onChange={this.handleChange}
-                                name="lengthPreference">
-                            <option value='none'>None</option>
-                            <option value='15'>15 Minutes</option>
-                            <option value='30'>30 Minutes</option>
-                            <option value='60'>1 Hour</option>
-                            <option value='90'>1 Hour 30 Minutes</option>
-                            defaultValue={"30 Minutes"}
-                        </select>
-                        <br/>
-                        <br/>
-
+                            <br/>
+                            <br/>
+                            <label className="dropdown-label">Length Preference </label>
+                            <select value={this.state.lengthPreference}
+                                    onChange={this.handleChange}
+                                    name="lengthPreference">
+                                <option value='none'>None</option>
+                                <option value='15'>15 Minutes</option>
+                                <option value='30'>30 Minutes</option>
+                                <option value='60'>1 Hour</option>
+                                <option value='90'>1 Hour 30 Minutes</option>
+                                defaultValue={"30 Minutes"}
+                            </select>
+                            <br/>
+                            <br/>
+                        </div>
 
                         <button class="btn btn1">Generate Now</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
-
 
 
                         <div className="container-fluid d-flex justify-content-center">
