@@ -37,9 +37,12 @@ class MusicCard extends Component {
         return (
             <div className="music-container ">
                 <div className="music-title text-center">
-                    What is playing:
+                    Currently playing:
                     <div className="musicPlayer">
-                        <ReactPlayer url={randURL} playing='true' loop='true'
+                        <ReactPlayer url={randURL}
+                                     playing='true'
+                                     loop='true'
+                                     volume='0.5'
                                      controls='true'/>
                     </div>
                 </div>

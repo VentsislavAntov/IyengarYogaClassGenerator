@@ -301,10 +301,11 @@ class MainArea extends Component {
 
     render() {
         let userExercises = this.state.userExercises;
-        let exerciseCards = this.state.userExercises.map(exercise=> {
+        let exerciseCards = this.state.userExercises.map(exercise => {
             return (
                 <div className="col-sm-4" key={exercise.exerciseid}>
-                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)} key={exercise.exerciseid}/>
+                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
+                                  key={exercise.exerciseid}/>
                 </div>
             )
         });
@@ -316,71 +317,88 @@ class MainArea extends Component {
                     <form className="yogaClass-form" onSubmit={this.handleSubmit}>
                         <br/>
                         <div className="dropdowns">
-                            <label className="dropdown-label">Props Preference </label>
-                            <select className="form-select"
-                                    value={this.state.propsPreference}
-                                    onChange={this.handleChange}
-                                    name="propsPreference">
-                                <option className="dropdown-option" value='none'>None</option>
-                                <option className="dropdown-option" value='props'>Props</option>
-                                <option className="dropdown-option" value='no props'>No Props</option>
-                            </select>
-                            <br/>
-                            <br/>
-                            <label className="dropdown-label">Type Preference </label>
-                            <select className="form-select"
-                                    value={this.state.typePreference}
-                                    onChange={this.handleChange}
-                                    name="typePreference">
-                                <option className="dropdown-option" value='none'>None</option>
-                                <option className="dropdown-option" value='Meditate'>Meditate</option>
-                                <option className="dropdown-option" value='Balance'>Balance</option>
-                                <option className="dropdown-option" value='Stretch'>Stretch</option>
-                                <option className="dropdown-option" value='Mix'>Mix</option>
-                            </select>
-
-                            <br/>
-                            <br/>
-                            <label className="dropdown-label">Difficulty Preference </label>
-                            <select className="form-select"
-                                    value={this.state.difficultyPreference}
-                                    onChange={this.handleChange}
-                                    name="difficultyPreference">
-                                <option className="dropdown-option" value='none'>None</option>
-                                <option className="dropdown-option" value='Beginner'>Beginner</option>
-                                <option className="dropdown-option" value='Intermediate'>Intermediate</option>
-                                <option className="dropdown-option" value='Advanced'>Advanced</option>
-                            </select>
-                            <br/>
-                            <br/>
-                            <label className="dropdown-label">Length Preference </label>
-                            <select className="form-select"
-                                    value={this.state.lengthPreference}
-                                    onChange={this.handleChange}
-                                    name="lengthPreference">
-                                <option className="dropdown-option" value='none'>None</option>
-                                <option className="dropdown-option" value='15'>15 Minutes</option>
-                                <option className="dropdown-option" value='30'>30 Minutes</option>
-                                <option className="dropdown-option" value='60'>1 Hour</option>
-                                <option className="dropdown-option" value='90'>1 Hour 30 Minutes</option>
-                                defaultValue={"30 Minutes"}
-                            </select>
-                            <br/>
-                            <br/>
-                            <label className="dropdown-label">Music Preference </label>
-                            <select className="form-select"
-                                    value={this.state.musicPreference}
-                                    onChange={this.handleChange}
-                                    name="musicPreference">
-                                <option className="dropdown-option" value='Disabled'>Disabled</option>
-                                <option className="dropdown-option" value='Classicalyogastyle'>Classical Yoga Style</option>
-                                <option className="dropdown-option" value='Lofihiphop'>Lofi Hip Hop</option>
-                                <option className="dropdown-option" value='Chill'>Chill</option>
-                                <option className="dropdown-option" value='Nature'>Nature</option>
-                                defaultValue={"Disabled"}
-                            </select>
-                            <br/>
-                            <br/>
+                            <table className="table-custom">
+                                <tr className="tr-custom">
+                                    <td className="table-first-column-text-form">
+                                        <label className="dropdown-label">Props Preference </label></td>
+                                    <td className="table-second-column-text">
+                                        <select className="form-select"
+                                                value={this.state.propsPreference}
+                                                onChange={this.handleChange}
+                                                name="propsPreference">
+                                            <option className="dropdown-option" value='none'>None</option>
+                                            <option className="dropdown-option" value='props'>Props</option>
+                                            <option className="dropdown-option" value='no props'>No Props</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr className="tr-custom">
+                                    <td className="table-first-column-text-form">
+                                        <label className="dropdown-label">Type Preference </label></td>
+                                    <td className="table-second-column-text">
+                                        <select className="form-select"
+                                                value={this.state.typePreference}
+                                                onChange={this.handleChange}
+                                                name="typePreference">
+                                            <option className="dropdown-option" value='none'>None</option>
+                                            <option className="dropdown-option" value='Meditate'>Meditate</option>
+                                            <option className="dropdown-option" value='Balance'>Balance</option>
+                                            <option className="dropdown-option" value='Stretch'>Stretch</option>
+                                            <option className="dropdown-option" value='Mix'>Mix</option>
+                                        </select></td>
+                                </tr>
+                                <tr className="tr-custom">
+                                    <td className="table-first-column-text-form">
+                                        <label className="dropdown-label">Difficulty Preference </label>
+                                    </td>
+                                    <td className="table-second-column-text">
+                                        <select className="form-select"
+                                                value={this.state.difficultyPreference}
+                                                onChange={this.handleChange}
+                                                name="difficultyPreference">
+                                            <option className="dropdown-option" value='none'>None</option>
+                                            <option className="dropdown-option" value='Beginner'>Beginner</option>
+                                            <option className="dropdown-option" value='Intermediate'>Intermediate
+                                            </option>
+                                            <option className="dropdown-option" value='Advanced'>Advanced</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr className="tr-custom">
+                                    <td className="table-first-column-text-form">
+                                        <label className="dropdown-label">Length Preference </label></td>
+                                    <td className="table-second-column-text">
+                                        <select className="form-select"
+                                                value={this.state.lengthPreference}
+                                                onChange={this.handleChange}
+                                                name="lengthPreference">
+                                            <option className="dropdown-option" value='none'>None</option>
+                                            <option className="dropdown-option" value='15'>15 Minutes</option>
+                                            <option className="dropdown-option" value='30'>30 Minutes</option>
+                                            <option className="dropdown-option" value='60'>1 Hour</option>
+                                            <option className="dropdown-option" value='90'>1 Hour 30 Minutes</option>
+                                            defaultValue={"30 Minutes"}
+                                        </select></td>
+                                </tr>
+                                <tr className="tr-custom">
+                                    <td className="table-first-column-text-form">
+                                        <label className="dropdown-label">Music Preference </label></td>
+                                    <td className="table-second-column-text">
+                                        <select className="form-select"
+                                                value={this.state.musicPreference}
+                                                onChange={this.handleChange}
+                                                name="musicPreference">
+                                            <option className="dropdown-option" value='Disabled'>Disabled</option>
+                                            <option className="dropdown-option" value='Classicalyogastyle'>Classical
+                                                Yoga Style
+                                            </option>
+                                            <option className="dropdown-option" value='Lofihiphop'>Lofi Hip Hop</option>
+                                            <option className="dropdown-option" value='Chill'>Chill</option>
+                                            <option className="dropdown-option" value='Nature'>Nature</option>
+                                            defaultValue={"Disabled"}
+                                        </select></td>
+                                </tr>
+                            </table>
                         </div>
 
                         <button className="btn btn1">Generate Now</button>

@@ -47,12 +47,17 @@ body{
 }
 
 .card{
+    outline: #6441a5 solid medium;
     position: absolute;
     transition: all 1.4s;
     background-color: beige;
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
+}
+
+.card-img-top{
+    outline: #6441a5 solid medium;
 }
 
 .card-body{
@@ -80,6 +85,7 @@ body{
     font-size: 0.9rem;
     padding: 0.4rem 1.9rem;
 }
+
 
 .container-fluid.row{
     padding-top: 6rem;

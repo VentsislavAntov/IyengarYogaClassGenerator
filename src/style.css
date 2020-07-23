@@ -9,7 +9,7 @@ html, body{
     padding: 10px;
     margin-left: 65px;
     margin-bottom: 45px;
-    font-size: 30px;
+    font-size: 23px;
     font-family: VT323, monospace;
     cursor: pointer;
     color: black;
@@ -79,6 +79,7 @@ html, body{
 .form-select{
     background-color: beige;
     border-radius: 10px;
+    min-width: 160px;
 }
 
 .music-container{
@@ -105,28 +106,45 @@ html, body{
 
 .table-first-column-text{
     font-weight: bold;
+    font-size: 16px
 }
+
+.table-first-column-text-form{
+    font-size: 20px
+}
+
 .table-second-column-text{
-    /*text-indent: 25px;*/
-    /*min-width: 100px;*/
+    /*font-weight: revert;*/
+    font-size: 16px
 }
 
 tr:nth-child(even) {background-color: white;}
 
+.tr-custom:nth-child(even) {background-color: lavender;}
+
+
 th, td {
     text-align: left;
+    padding: 2px;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
-    width: 100%;
-    outline: thick solid #6441a5;
+    outline: #6441a5 solid medium;
+}
+
+.table-custom {
+    border-collapse: collapse;
+    width: 28%;
+    outline: none;
+
 }
 
 th {
     height: 50px;
 }
+
 
 header {
     height:100px;
