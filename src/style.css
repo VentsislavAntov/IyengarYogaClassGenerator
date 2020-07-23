@@ -9,7 +9,7 @@ html, body{
     padding: 10px;
     margin-left: 65px;
     margin-bottom: 45px;
-    font-size: 40px;
+    font-size: 30px;
     font-family: VT323, monospace;
     cursor: pointer;
     color: black;
@@ -47,7 +47,7 @@ html, body{
 
 .content-wrap{
     background: lavender;
-    margin: 50px;
+    margin-top: 50px;
 }
 
 .dropdown-label{
@@ -71,7 +71,7 @@ html, body{
 
 
 .dropdowns{
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     margin-left: 65px;
     text-shadow: 1px 1px 1px black;

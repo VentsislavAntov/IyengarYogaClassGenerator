@@ -2,12 +2,14 @@ body{
     background:radial-gradient(#e5e5e5, #ffff, #e5e5e5);
 }
 
-.card{
+.card-container{
+    position: relative;
     /*width: 30rem;*/
     margin: 38px;
     /*align-items: center;*/
-    background-color: beige;
     /*min-height: 1100px;*/
+    width: 420px;
+    min-height: 660px;
 }
 
 .card-title{
@@ -19,19 +21,49 @@ body{
 }
 
 
-.card:hover{
-    box-shadow:5px 10px 20px 1px rgba(0,0,0,0.253)!important;
+/*.card-container:hover{*/
+/*    box-shadow:5px 10px 20px 1px rgba(0,0,0,0.253)!important;*/
+/*}*/
+
+.card-container:hover .card-front{
+    transform: rotateY(180deg);
+}
+
+.card-container:hover .card-back{
+    transform: rotateY(0deg);
+}
+
+.card-back{
+    transform: rotateY(180deg);
+}
+
+.card{
+    position: absolute;
+    transition: all 0.7s;
+    background-color: beige;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
 }
 
 .card-body{
     padding: 3rem 0 !important;
-    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card-body-back{
+    /*padding: 3rem 0 !important;*/
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .card-description{
     padding: 3rem 0 !important;
     margin-left: 20px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     margin-right: 20px;
 }
 
@@ -47,6 +79,5 @@ body{
 .overflow{
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 20px;
 }
 
