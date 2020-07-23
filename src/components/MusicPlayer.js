@@ -11,17 +11,28 @@ class MusicCard extends Component {
 
     render() {
         let randURL;
-        let YouTubeLinksStringified = JSON.stringify(YouTubeLinks)
+        // let YouTubeLinksStringified = JSON.stringify(YouTubeLinks)
+
+        // console.log("YouTubeLinksStringified")
+        // console.log(YouTubeLinksStringified)
+        //
+        // console.log("YouTubeLinks.classicalyogastyle")
+        // console.log(YouTubeLinks.classicalyogastyle)
+        //
+        // console.log("YouTubeLinks.classicalyogastyle[0]")
+        // console.log(YouTubeLinks.classicalyogastyle[0])
+
+
         if (this.props.preference === "Disabled") {
             return null;
         } else if (this.props.preference === "Classicalyogastyle") {
-            randURL = YouTubeLinksStringified.classicalyogastyle[Math.floor(Math.random() * YouTubeLinks.classicalyogastyle.length)];
+            randURL = YouTubeLinks.classicalyogastyle[Math.floor(Math.random() * YouTubeLinks.classicalyogastyle.length)];
         } else if (this.props.preference === "Lofihiphop") {
-            randURL = YouTubeLinksStringified.lofihiphop[Math.floor(Math.random() * YouTubeLinks.lofihiphop.length)];
+            randURL = YouTubeLinks.lofihiphop[Math.floor(Math.random() * YouTubeLinks.lofihiphop.length)];
         } else if (this.props.preference === "Chill") {
-            randURL = YouTubeLinksStringified.chill[Math.floor(Math.random() * YouTubeLinks.chill.length)];
+            randURL = YouTubeLinks.chill[Math.floor(Math.random() * YouTubeLinks.chill.length)];
         } else if (this.props.preference === "Nature") {
-            randURL = YouTubeLinksStringified.nature[Math.floor(Math.random() * YouTubeLinks.nature.length)];
+            randURL = YouTubeLinks.nature[Math.floor(Math.random() * YouTubeLinks.nature.length)];
         }
         return (
             <div className="music-container ">

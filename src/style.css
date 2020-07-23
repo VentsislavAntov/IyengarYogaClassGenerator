@@ -103,6 +103,31 @@ html, body{
     margin-top: 15px;
 }
 
+.table-first-column-text{
+    font-weight: bold;
+}
+.table-second-column-text{
+    /*text-indent: 25px;*/
+    /*min-width: 100px;*/
+}
+
+tr:nth-child(even) {background-color: white;}
+
+th, td {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    width: 100%;
+    outline: thick solid #6441a5;
+}
+
+th {
+    height: 50px;
+}
+
 header {
     height:100px;
     display: flex;

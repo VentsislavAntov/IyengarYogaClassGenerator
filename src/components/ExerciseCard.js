@@ -29,7 +29,7 @@ class ExerciseCard extends Component {
             <div className="card-container">
                 < div className="card card-front text-center border-secondary mb-3">
                     <div className="card-title">
-                         {this.props.number + 1 + ". " + this.props.exercise.sanskritname}
+                        {this.props.number + 1 + ". " + this.props.exercise.sanskritname}
                     </div>
                     < div
                         className="overflow">
@@ -40,12 +40,39 @@ class ExerciseCard extends Component {
                     </div>
                     <div className="card-body text-dark text-lg-left">
 
-                        <h6>English Name: {this.props.exercise.englishname}</h6>
-                        <h6>Exercise Group: {this.props.exercise.exerciseposition}</h6>
-                        <h6>Type: {this.props.exercise.exercisetype}</h6>
-                        <h6>Difficulty: {this.props.exercise.difficulty}</h6>
-                        <h6>Length: {this.props.exercise.minutes} Minutes</h6>
-                        <h6>Props: {this.props.exercise.exerciseprops}</h6>
+                        <table>
+                            <tr>
+                                <td className="table-first-column-text">English Name:</td>
+                                <td className="table-second-column-text">{this.props.exercise.englishname}</td>
+                            </tr>
+                            <tr>
+                                <td className="table-first-column-text">Exercise Group:</td>
+                                <td className="table-second-column-text">{this.props.exercise.exerciseposition}</td>
+                            </tr>
+                            <tr>
+                                <td className="table-first-column-text">Type:</td>
+                                <td className="table-second-column-text">{this.props.exercise.exercisetype}</td>
+                            </tr>
+                            <tr>
+                                <td className="table-first-column-text">Difficulty:</td>
+                                <td className="table-second-column-text">{this.props.exercise.difficulty}</td>
+                            </tr>
+                            <tr>
+                                <td className="table-first-column-text">Length:</td>
+                                <td className="table-second-column-text">{this.props.exercise.minutes} minutes</td>
+                            </tr>
+                            <tr>
+                                <td className="table-first-column-text">Props:</td>
+                                <td className="table-second-column-text">{this.props.exercise.exerciseprops}</td>
+                            </tr>
+                        </table>
+
+                        {/*<h6>English Name: {this.props.exercise.englishname}</h6>*/}
+                        {/*<h6>Exercise Group: {this.props.exercise.exerciseposition}</h6>*/}
+                        {/*<h6>Type: {this.props.exercise.exercisetype}</h6>*/}
+                        {/*<h6>Difficulty: {this.props.exercise.difficulty}</h6>*/}
+                        {/*<h6>Length: {this.props.exercise.minutes} Minutes</h6>*/}
+                        {/*<h6>Props: {this.props.exercise.exerciseprops}</h6>*/}
                     </div>
                 </div>
                 < div className="card card-back text-center border-secondary mb-3">
