@@ -301,11 +301,10 @@ class MainArea extends Component {
 
     render() {
         let userExercises = this.state.userExercises;
-        let exerciseCards = this.state.userExercises.map(exercise => {
+        let exerciseCards = this.state.userExercises.map(exercise=> {
             return (
-
-                <div className="col-sm-4">
-                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}/>
+                <div className="col-sm-4" key={exercise.exerciseid}>
+                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)} key={exercise.exerciseid}/>
                 </div>
             )
         });
@@ -384,7 +383,7 @@ class MainArea extends Component {
                             <br/>
                         </div>
 
-                        <button class="btn btn1">Generate Now</button>
+                        <button className="btn btn1">Generate Now</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
 
