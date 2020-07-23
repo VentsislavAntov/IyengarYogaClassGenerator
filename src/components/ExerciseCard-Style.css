@@ -9,10 +9,19 @@ body{
     /*align-items: center;*/
     /*min-height: 1100px;*/
     width: 420px;
-    min-height: 660px;
+    min-height: 600px;
 }
 
 .card-title{
+    font-size: 20px;
+    padding: 10px;
+    text-shadow: 1px 1px 1px black;
+    overflow: revert;
+    white-space: nowrap;
+    color: #2a0845;
+}
+
+.card-title-back{
     padding: 10px;
     text-shadow: 1px 1px 1px black;
     overflow: revert;
@@ -39,7 +48,7 @@ body{
 
 .card{
     position: absolute;
-    transition: all 0.7s;
+    transition: all 1.4s;
     background-color: beige;
     height: 100%;
     width: 100%;

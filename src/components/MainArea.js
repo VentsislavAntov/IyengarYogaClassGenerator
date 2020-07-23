@@ -2,6 +2,8 @@ import React, {Component} from "react"
 import ExerciseCardUI from "./ExerciseCard";
 import ExerciseCard from './ExerciseCard';
 import Select from 'react-select'
+import ReactPlayer from 'react-player/youtube'
+import MusicPlayer from "./MusicPlayer";
 
 class MainArea extends Component {
     constructor() {
@@ -11,6 +13,8 @@ class MainArea extends Component {
             typePreference: 'none',
             difficultyPreference: 'none',
             lengthPreference: '30',
+            musicPreference: 'Disabled',
+            musicPreferenceTrigger: 'Disabled',
             exercises: [],
             userExercises: []
         };
@@ -64,6 +68,7 @@ class MainArea extends Component {
         let typePreference = this.state.typePreference;
         let difficultyPreference = this.state.difficultyPreference;
         let lengthPreference = this.state.lengthPreference;
+        let musicPreference = this.state.musicPreference;
         let siddhasanaExercise;
         let swastikasanaExercise;
         let tadasanaExercise;
@@ -118,19 +123,11 @@ class MainArea extends Component {
         }
 
         let randInteger = Math.floor(Math.random() * Math.floor(10));
-        console.log("random integer ");
-        console.log(randInteger)
-        console.log("siddhasanaExercise ");
-        console.log(siddhasanaExercise);
-        console.log("allExercises.length");
-        console.log(allExercises.length);
         if (randInteger < 3) {
             firstExercise = siddhasanaExercise;
         } else {
             firstExercise = swastikasanaExercise;
         }
-        console.log("first exercise");
-        console.log(firstExercise)
         elapsedTime = elapsedTime + firstExercise.minutes + tadasanaExercise.minutes;
         this.setState(prevState => {
             return {
@@ -151,8 +148,6 @@ class MainArea extends Component {
                 return exercise.difficulty === difficultyPreference;
             });
         }
-        console.log("filtertest1");
-        console.log(allExercisesDifficultyFilter);
 
         let allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
         if (typePreference !== 'none') {
@@ -160,21 +155,7 @@ class MainArea extends Component {
                 return exercise.exercisetype === typePreference;
             });
         }
-        console.log("filtertest2");
-        console.log(allExercisesDifficultyTypeFilter);
 
-        console.log("filtertest2size");
-        console.log(allExercisesDifficultyTypeFilter.length);
-
-
-        // filterArrayToNewArray(difficultyPreference, allExercises, allExercisesDifficultyFilter, "difficulty ");
-        //
-        // console.log("filter1");
-        // console.log(allExercisesDifficultyFilter);
-        // filterArrayToNewArray(typePreference, allExercisesDifficultyFilter, allExercisesDifficultyTypeFilter, 'exercisetype');
-        //
-        // console.log("filter2");
-        // console.log(allExercisesDifficultyTypeFilter);
 
         let allExercisesDifficultyTypePropsFilter = allExercisesDifficultyTypeFilter;
         if (propsPreference === 'none') {
@@ -189,41 +170,8 @@ class MainArea extends Component {
             });
         }
 
-        console.log("filtertest3");
-        console.log(allExercisesDifficultyTypePropsFilter);
-
-
-        // if (difficultyPreference === 'none') {
-        //     allExercisesDifficultyFilter = allExercises;
-        // } else {
-        //     allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
-        //         return exercise.exerciseposition === difficultyPreference;
-        //     });
-        // }
-        //
-        // if (typePreference === 'none') {
-        //     allExercisesDifficultyTypeFilter = allExercisesDifficultyFilter;
-        // } else {
-        //     allExercisesDifficultyFilter = allExercises.filter(function (exercise) {
-        //         return exercise.exercisetype  === typePreference;
-        //     });
-        // }
-
 
         let timeToSplit = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes - firstExercise.minutes - tadasanaExercise.minutes;
-        console.log('timebeforeSarv');
-        console.log(timeToSplit);
-        console.log('lengthPreference');
-        console.log(lengthPreference);
-        console.log('sarvangasanaExercise.minutes');
-        console.log(sarvangasanaExercise.minutes);
-        console.log('savasanaExercise.minutes');
-        console.log(savasanaExercise.minutes);
-        console.log('firstExercise.minutes');
-        console.log(firstExercise.minutes);
-        console.log('tadasanaExercise.minutes');
-        console.log(tadasanaExercise.minutes);
-
         let allExercisesDifficultyTypePropsFilterLocal;
         let allExercisesDifficultyTypeFilterLocal;
         let allExercisesDifficultyFilterLocal;
@@ -232,27 +180,26 @@ class MainArea extends Component {
         while ((timeToSplit / 6) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Standing Backwards Extension');
         }
-        console.log('after first while while');
+
         while (((timeToSplit / 6) * 2) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Standing Forward Bend');
         }
-        console.log('after second while while');
+
         while (((timeToSplit / 6) * 3) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Twist');
         }
-        console.log('after third while while');
+
         while (((timeToSplit / 6) * 4) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Forward Bend');
         }
-        console.log('after fourth while while');
+
         while (((timeToSplit / 6) * 5) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Seated Other');
         }
-        console.log('after fifth while while');
+
         while ((timeToSplit) > (elapsedTime - firstExercise.minutes - tadasanaExercise.minutes)) {
             customFilter('Prone/Supine');
         }
-        console.log('after sixth while while');
 
 
         this.setState(prevState => {
@@ -261,135 +208,15 @@ class MainArea extends Component {
             }
         });
 
+        if (this.state.musicPreference !== "Disabled") {
+            this.setState(prevState => {
+                    return {
+                        musicPreferenceTrigger: this.state.musicPreference
+                    }
+                }
+            )
+        }
 
-        // if (propsPreference === 'none') {
-        //     let userExercisesRandomStanding;
-        //     let userExercisesRandomOnFloor;
-        //     console.log("in IF");
-        //     userExercisesRandomStanding = allExercises.filter(function (exercise) {
-        //         return exercise.exerciseposition === 'Standing';
-        //     });
-        //
-        //     console.log("after first filter");
-        //     console.log(userExercisesRandomStanding);
-        //     console.log(userExercisesRandomStanding.length - 1);
-        //
-        //     while (((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2) > (elapsedTime - siddhasanaExercise.minutes)) {
-        //         let addedExercise = userExercisesRandomStanding[Math.floor(Math.random() * userExercisesRandomStanding.length)];
-        //         elapsedTime = elapsedTime + addedExercise.minutes;
-        //         console.log("WHAT IS SUPPOSED TO BE DELETED");
-        //         console.log(addedExercise);
-        //
-        //         const index = userExercisesRandomStanding.indexOf(addedExercise);
-        //         if (index > -1) {
-        //             userExercisesRandomStanding.splice(index, 1);
-        //         }
-        //
-        //         this.setState(prevState => {
-        //             return {
-        //                 userExercises: prevState.userExercises.concat(addedExercise)
-        //             }
-        //         });
-        //
-        //
-        //         console.log("IN FIRST LOOP");
-        //         console.log(userExercisesRandomStanding);
-        //
-        //         console.log("userExercises");
-        //
-        //         console.log(userExercises);
-        //         console.log(userExercises.length);
-        //
-        //         console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
-        //         console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
-        //
-        //         console.log("elapsedTime - siddhasanaExercise.minutes");
-        //         console.log(elapsedTime - siddhasanaExercise.minutes);
-        //
-        //         console.log("elapsedTime ");
-        //         console.log(elapsedTime);
-        //     }
-        //
-        //     userExercisesRandomOnFloor = allExercises.filter(exercise =>
-        //         exercise.exerciseposition === 'On Floor' &&
-        //         exercise.sanskritname !== 'Siddhasana'
-        //         && exercise.sanskritname !== 'Savasana'
-        //     );
-        //
-        //     console.log("before 2nd loop");
-        //     console.log(userExercisesRandomOnFloor);
-        //
-        //
-        //     while ((lengthPreference - siddhasanaExercise.minutes) > elapsedTime) {
-        //         // let rand = getRandomInt(0, userExercisesRandomOnFloor.length - 1);
-        //         // this.setState(prevState => {
-        //         //     return {
-        //         //         userExercises: prevState.userExercises.concat(userExercisesRandomOnFloor[rand])
-        //         //     }
-        //         // });
-        //         // elapsedTime = elapsedTime + userExercisesRandomOnFloor[rand].minutes;
-        //         // userExercisesRandomOnFloor.splice(rand, 1);
-        //         // console.log("IN SECOND LOOP");
-        //         // console.log(userExercisesRandomOnFloor);
-        //         let addedExercise = userExercisesRandomOnFloor[Math.floor(Math.random() * userExercisesRandomOnFloor.length)];
-        //         elapsedTime = elapsedTime + addedExercise.minutes;
-        //         console.log("WHAT IS SUPPOSED TO BE DELETED");
-        //         console.log(addedExercise);
-        //
-        //         const index = userExercisesRandomOnFloor.indexOf(addedExercise);
-        //         if (index > -1) {
-        //             userExercisesRandomOnFloor.splice(index, 1);
-        //         }
-        //
-        //         this.setState(prevState => {
-        //             return {
-        //                 userExercises: prevState.userExercises.concat(addedExercise)
-        //             }
-        //         });
-        //
-        //
-        //         console.log("IN FIRST LOOP");
-        //         console.log(userExercisesRandomOnFloor);
-        //
-        //         console.log("userExercises");
-        //
-        //         console.log(userExercises);
-        //         console.log(userExercises.length);
-        //
-        //         console.log("lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2");
-        //         console.log((lengthPreference - siddhasanaExercise.minutes - savasanaExercise.minutes) / 2);
-        //
-        //         console.log("elapsedTime - siddhasanaExercise.minutes");
-        //         console.log(elapsedTime - siddhasanaExercise.minutes);
-        //
-        //         console.log("elapsedTime ");
-        //         console.log(elapsedTime);
-        //
-        //
-        //     }
-        //
-        //
-        //     console.log("elapsedtime at end of whole thing");
-        //     console.log(elapsedTime);
-        //
-        //
-        //     // this.setState({userExercises: [...this.state.userExercises, savasanaExercise]});
-        //
-        //
-        //     function getRandomInt(min, max) {
-        //         min = Math.ceil(min);
-        //         max = Math.floor(max);
-        //         return Math.floor(Math.random() * (max - min)) + min;
-        //     }
-        //
-        //
-        //     //adding sarvangasana and savasana
-        //     this.setState(prevState => {
-        //         return {
-        //             userExercises: prevState.userExercises.concat(sarvangasanaExercise).concat(savasanaExercise)
-        //         }
-        //     })
-        // }
 
         function customFilter(exercisePosition) {
             let addedExercise;
@@ -406,14 +233,6 @@ class MainArea extends Component {
                 return exercise.exerciseposition === exercisePosition;
             });
 
-            console.log("allExercisesDifficultyTypePropsFilterLocal.length");
-            console.log(allExercisesDifficultyTypePropsFilterLocal.length);
-            console.log("allExercisesDifficultyTypeFilterLocal.length");
-            console.log(allExercisesDifficultyTypeFilterLocal.length);
-            console.log("allExercisesDifficultyFilterLocal.length ");
-            console.log(allExercisesDifficultyFilterLocal.length);
-            console.log("allExercisesLocal.length");
-            console.log(allExercisesLocal.length);
 
             if (allExercisesDifficultyTypePropsFilterLocal.length !== 0) {
                 addedExercise = allExercisesDifficultyTypePropsFilterLocal[Math.floor(Math.random() * allExercisesDifficultyTypePropsFilterLocal.length)];
@@ -445,10 +264,7 @@ class MainArea extends Component {
                 elapsedTime = elapsedTime + addedExercise.minutes;
                 removeItem(allExercises, addedExercise);
             }
-            console.log("WHAT IS SUPPOSED TO BE DELETED");
-            console.log(addedExercise);
-            console.log("elapsedTime");
-            console.log(elapsedTime);
+
             that.setState(prevState => {
                 return {
                     userExercises: prevState.userExercises.concat(addedExercise)
@@ -482,16 +298,6 @@ class MainArea extends Component {
 
     }
 
-// <ExerciseCardUI key={exercise.exerciseid}*/}
-// sanskritname={exercise.sanskritname}*/}
-// englishname={exercise.englishname}*/}
-// exerciseposition={exercise.exerciseposition}*/}
-// exercisetype={exercise.exercisetype}*/}
-// difficulty={exercise.difficulty}*/}
-// minutes={exercise.minutes}*/}
-// exerciseprops={exercise.exerciseprops}*/}
-// description={exercise.description}*/}
-// url={exercise.url}/>)
 
     render() {
         let userExercises = this.state.userExercises;
@@ -512,54 +318,67 @@ class MainArea extends Component {
                         <br/>
                         <div className="dropdowns">
                             <label className="dropdown-label">Props Preference </label>
-                            <select className = "form-select"
+                            <select className="form-select"
                                     value={this.state.propsPreference}
                                     onChange={this.handleChange}
                                     name="propsPreference">
-                                <option className = "dropdown-option" value='none'>None</option>
-                                <option className = "dropdown-option" value='props'>Props</option>
-                                <option className = "dropdown-option" value='no props'>No Props</option>
+                                <option className="dropdown-option" value='none'>None</option>
+                                <option className="dropdown-option" value='props'>Props</option>
+                                <option className="dropdown-option" value='no props'>No Props</option>
                             </select>
                             <br/>
                             <br/>
                             <label className="dropdown-label">Type Preference </label>
-                            <select className = "form-select"
+                            <select className="form-select"
                                     value={this.state.typePreference}
                                     onChange={this.handleChange}
                                     name="typePreference">
-                                <option className = "dropdown-option" value='none'>None</option>
-                                <option className = "dropdown-option" value='Meditate'>Meditate</option>
-                                <option className = "dropdown-option" value='Balance'>Balance</option>
-                                <option className = "dropdown-option" value='Stretch'>Stretch</option>
-                                <option className = "dropdown-option" value='Mix'>Mix</option>
+                                <option className="dropdown-option" value='none'>None</option>
+                                <option className="dropdown-option" value='Meditate'>Meditate</option>
+                                <option className="dropdown-option" value='Balance'>Balance</option>
+                                <option className="dropdown-option" value='Stretch'>Stretch</option>
+                                <option className="dropdown-option" value='Mix'>Mix</option>
                             </select>
 
                             <br/>
                             <br/>
                             <label className="dropdown-label">Difficulty Preference </label>
-                            <select className = "form-select"
+                            <select className="form-select"
                                     value={this.state.difficultyPreference}
                                     onChange={this.handleChange}
                                     name="difficultyPreference">
-                                <option className = "dropdown-option" value='none'>None</option>
-                                <option className = "dropdown-option" value='Beginner'>Beginner</option>
-                                <option className = "dropdown-option" value='Intermediate'>Intermediate</option>
-                                <option className = "dropdown-option" value='Advanced'>Advanced</option>
+                                <option className="dropdown-option" value='none'>None</option>
+                                <option className="dropdown-option" value='Beginner'>Beginner</option>
+                                <option className="dropdown-option" value='Intermediate'>Intermediate</option>
+                                <option className="dropdown-option" value='Advanced'>Advanced</option>
                             </select>
-
                             <br/>
                             <br/>
                             <label className="dropdown-label">Length Preference </label>
-                            <select className = "form-select"
+                            <select className="form-select"
                                     value={this.state.lengthPreference}
                                     onChange={this.handleChange}
                                     name="lengthPreference">
-                                <option className = "dropdown-option" value='none'>None</option>
-                                <option className = "dropdown-option" value='15'>15 Minutes</option>
-                                <option className = "dropdown-option" value='30'>30 Minutes</option>
-                                <option className = "dropdown-option" value='60'>1 Hour</option>
-                                <option className = "dropdown-option" value='90'>1 Hour 30 Minutes</option>
+                                <option className="dropdown-option" value='none'>None</option>
+                                <option className="dropdown-option" value='15'>15 Minutes</option>
+                                <option className="dropdown-option" value='30'>30 Minutes</option>
+                                <option className="dropdown-option" value='60'>1 Hour</option>
+                                <option className="dropdown-option" value='90'>1 Hour 30 Minutes</option>
                                 defaultValue={"30 Minutes"}
+                            </select>
+                            <br/>
+                            <br/>
+                            <label className="dropdown-label">Music Preference </label>
+                            <select className="form-select"
+                                    value={this.state.musicPreference}
+                                    onChange={this.handleChange}
+                                    name="musicPreference">
+                                <option className="dropdown-option" value='Disabled'>Disabled</option>
+                                <option className="dropdown-option" value='Classicalyogastyle'>Classical Yoga Style</option>
+                                <option className="dropdown-option" value='Lofihiphop'>Lofi Hip Hop</option>
+                                <option className="dropdown-option" value='Chill'>Chill</option>
+                                <option className="dropdown-option" value='Nature'>Nature</option>
+                                defaultValue={"Disabled"}
                             </select>
                             <br/>
                             <br/>
@@ -568,15 +387,18 @@ class MainArea extends Component {
                         <button class="btn btn1">Generate Now</button>
                         {/*<pre>{JSON.stringify(exercises)}</pre>*/}
 
+
                         <div className="container-fluid d-flex justify-content-center">
                             <div className="row">
                                 {exerciseCards}
                             </div>
                         </div>
+
+                        <div className="music">
+                            <MusicPlayer preference={this.state.musicPreference}/>
+                        </div>
                         <br/>
                         <br/>
-
-
                     </form>
                 </div>
             </div>

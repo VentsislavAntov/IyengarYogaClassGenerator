@@ -37,7 +37,6 @@ html, body{
     }
 }
 
-
 .AppMain{
     background: lavender;
     display:flex;
@@ -55,10 +54,6 @@ html, body{
 }
 
 
-/*.content-wrap{*/
-/*    flex:1;*/
-/*}*/
-
 .main-footer{
     min-width: 100%;
     color: white;
@@ -68,7 +63,6 @@ html, body{
     bottom: 0;
     text-shadow: 1px 1px 2px black;
 }
-
 
 .dropdowns{
     font-size: 20px;
@@ -87,21 +81,27 @@ html, body{
     border-radius: 10px;
 }
 
-/*footer{*/
-/*    background: #303036;*/
-/*    color: #d3d3d3;*/
-/*    height: 400px;*/
-/*    width: 100%;*/
-/*}*/
+.music-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/*.footer-about{*/
-/*    border: 1px solid red;*/
-/*    height: 350px;*/
-/*    width: 50%;*/
-/*    margin: 50px;*/
+.music-title{
+    align-items: center;
+    font-size: 70px;
+    padding: 10px;
+    text-shadow: 1px 1px 2px black;
+    overflow: revert;
+    white-space: nowrap;
+    color: #2a0845;
+}
 
-/*}*/
-
+.musicPlayer{
+    margin-top: 15px;
+}
 
 header {
     height:100px;
@@ -126,20 +126,7 @@ header > p{
     font-size: 30px;
     margin-left: 60px;
     margin-right: 60px;
-
-
 }
-/*.navbar{*/
-/*    height: 100px;*/
-/*    background-color: #333;*/
-/*    color: whitesmoke;*/
-/*    margin-bottom: 15px;*/
-/*    text-align: center;*/
-/*    font-size: 40px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
 
-/*}*/
 
 

@@ -29,7 +29,7 @@ class ExerciseCard extends Component {
             <div class="card-container">
                 < div className="card card-front text-center border-secondary mb-3">
                     <div className="card-title">
-                        <h5> {this.props.number + 1 + ". " + this.props.exercise.sanskritname}</h5>
+                         {this.props.number + 1 + ". " + this.props.exercise.sanskritname}
                     </div>
                     < div
                         className="overflow">
@@ -40,16 +40,16 @@ class ExerciseCard extends Component {
                     </div>
                     <div className="card-body text-dark text-lg-left">
 
-                        <h5>English Name: {this.props.exercise.englishname}</h5>
-                        <h5>Exercise Group: {this.props.exercise.exerciseposition}</h5>
-                        <h5>Type: {this.props.exercise.exercisetype}</h5>
-                        <h5>Difficulty: {this.props.exercise.difficulty}</h5>
-                        <h5>Length: {this.props.exercise.minutes} Minutes</h5>
-                        <h5>Props: {this.props.exercise.exerciseprops}</h5>
+                        <h6>English Name: {this.props.exercise.englishname}</h6>
+                        <h6>Exercise Group: {this.props.exercise.exerciseposition}</h6>
+                        <h6>Type: {this.props.exercise.exercisetype}</h6>
+                        <h6>Difficulty: {this.props.exercise.difficulty}</h6>
+                        <h6>Length: {this.props.exercise.minutes} Minutes</h6>
+                        <h6>Props: {this.props.exercise.exerciseprops}</h6>
                     </div>
                 </div>
                 < div className="card card-back text-center border-secondary mb-3">
-                    <div className="card-title">
+                    <div className="card-title-back">
                         <h4> Description </h4>
                     </div>
                     <div className="card-body-back text-dark text-lg-left">

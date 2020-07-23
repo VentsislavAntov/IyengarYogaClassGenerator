@@ -5,7 +5,5 @@ import './style.css';
 import App from "./App";
 // import '../node_modules/bootstrap/dist/css/'
 
-
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
