@@ -318,8 +318,12 @@ class MainArea extends Component {
                         <div className="col-sm-4">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
-                                    <br/>
+
+                                    <div className="form-title text-center">
+                                        Preferences
+                                    </div>
                                     <div className="dropdowns">
+
                                         <table className="table-custom">
                                             <tr className="tr-custom">
                                                 <td className="table-first-column-text-form">
@@ -419,6 +423,7 @@ class MainArea extends Component {
                                             </tr>
                                         </table>
                                     </div>
+
 
                                     <button className="btn btn1">Generate Now</button>
                                     {/*<pre>{JSON.stringify(exercises)}</pre>*/}
