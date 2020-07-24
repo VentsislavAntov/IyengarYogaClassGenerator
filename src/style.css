@@ -1,15 +1,16 @@
-html, body{
+html, body {
     height: 100%;
     margin: 0;
 }
 
-.btn{
-    border: 2px solid rgba(112,110,110,1);
+.btn {
+    border: 2px solid rgba(112, 110, 110, 1);
     background: linear-gradient(90deg, #6250a5, #8180a5);
     padding: 10px;
-    margin-left: 65px;
+    margin-top: 20px;
+    margin-left: 80px;
     margin-bottom: 45px;
-    font-size: 23px;
+    font-size: 35px;
     font-family: VT323, monospace;
     cursor: pointer;
     color: black;
@@ -20,11 +21,11 @@ html, body{
     border-radius: 30px;
 }
 
-.btn:hover{
+.btn:hover {
     color: #fff;
 }
 
-.btn:focus{
+.btn:focus {
     color: #120045;
     border: 2px solid #2a0845;
     box-shadow: 0px 0px 0px 1px rgb(35, 30, 112);;
@@ -32,29 +33,39 @@ html, body{
 }
 
 @keyframes anim-shadow {
-    100%{
-        box-shadow: 0px 0px 30px 10px rgba(112,110,110,0);;
+    100% {
+        box-shadow: 0px 0px 30px 10px rgba(112, 110, 110, 0);;
     }
 }
 
-.AppMain{
+.AppMain {
     background: lavender;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     min-height: 65vh;
 }
 
-.content-wrap{
+.content-wrap {
     background: lavender;
     margin-top: 50px;
 }
 
-.dropdown-label{
-    margin-right: 20px;
+.container-fluid-form-and-music {
+    margin-top: 15px;
+}
+
+.container-fluid-cards {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.dropdown-label {
+    margin-right: 0px;
 }
 
 
-.main-footer{
+.main-footer {
     min-width: 100%;
     color: white;
     background-color: #6441a5;
@@ -64,7 +75,7 @@ html, body{
     text-shadow: 1px 1px 2px black;
 }
 
-.dropdowns{
+.dropdowns {
     font-size: 20px;
     padding: 10px;
     margin-left: 65px;
@@ -72,27 +83,28 @@ html, body{
     color: #2a0845;
 }
 
-.dropdown-option{
+.dropdown-option {
     background-color: beige;
 }
 
-.form-select{
+.form-select {
     background-color: beige;
     border-radius: 10px;
     min-width: 160px;
 }
 
-.music-container{
-    margin-top: 50px;
+.music-container {
+    position: relative;
+    margin-top: 30px;
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.music-title{
+.music-title {
     align-items: center;
-    font-size: 70px;
+    font-size: 60px;
     padding: 10px;
     text-shadow: 1px 1px 2px black;
     overflow: revert;
@@ -100,27 +112,39 @@ html, body{
     color: #2a0845;
 }
 
-.musicPlayer{
+.musicPlayer {
     margin-top: 15px;
 }
 
-.table-first-column-text{
+.table-first-column-text {
     font-weight: bold;
     font-size: 16px
 }
 
-.table-first-column-text-form{
-    font-size: 20px
+.table-first-column-text-form {
+    min-width: 300px;
+    font-size: 28px;
 }
 
-.table-second-column-text{
+.table-second-column-text {
     /*font-weight: revert;*/
     font-size: 16px
 }
 
-tr:nth-child(even) {background-color: white;}
+.table-second-column-text-form {
+    /*font-weight: revert;*/
+    font-size: 20px
+}
 
-.tr-custom:nth-child(even) {background-color: lavender;}
+tr:nth-child(even) {
+    background-color: white;
+}
+
+.tr-custom:nth-child(even) {
+    background-color: lavender;
+}
+
+
 
 
 th, td {
@@ -138,7 +162,9 @@ table {
     border-collapse: collapse;
     width: 28%;
     outline: none;
-
+    padding-bottom: 10em;
+    margin-left: 10px;
+    margin-top: 50px;
 }
 
 th {
@@ -147,7 +173,7 @@ th {
 
 
 header {
-    height:100px;
+    height: 100px;
     display: flex;
     align-items: center;
     background: #6441a5;
@@ -158,12 +184,12 @@ header {
     justify-content: center;
 }
 
-header > img{
+header > img {
     height: 80%;
     /*margin-left: 10%;*/
 }
 
-header > p{
+header > p {
     font-family: VT323, monospace;
     color: whitesmoke;
     font-size: 30px;
