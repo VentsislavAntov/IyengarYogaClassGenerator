@@ -227,7 +227,7 @@ class MainArea extends Component {
                 }
             );
         }
-        
+
         else{
             this.setState({musicPreferenceTrigger: "Disabled"});
         }
