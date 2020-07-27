@@ -1,3 +1,7 @@
+/**
+ * Footer Component. Its parent is App.
+ */
+
 import React from "react"
 
 const Footer = () => {

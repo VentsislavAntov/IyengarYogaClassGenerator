@@ -1,3 +1,7 @@
+/**
+ * Header Component. Its parent is App.
+ */
+
 import React from "react"
 import logo from "./logo.png";
 

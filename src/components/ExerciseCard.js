@@ -1,24 +1,11 @@
+/**
+ * Class component used to represent cards for individual exercises. Has a separate css file. Its parent is MainArea.
+ */
+
 import React, {Component} from 'react'
 import './ExerciseCard-Style.css'
 
-// function ExerciseCardUI(props) {
-//     // sanskritname 	englishname 	exerciseposition 	exercisetype 	difficulty 	minutes 	url 	exerciseprops 	description
-//
-//     return (
-//         <div className="exerciseCards">
-//             Sanskritname: {props.sanskritname}
-//             Englishname: {props.englishname}
-//             Exercise Group : {props.exerciseposition}
-//             Type: {props.exercisetype}
-//             Difficulty : {props.difficulty}
-//             Length: {props.minutes}
-//             Props: {props.exerciseprops}
-//             Description: {props.description}
-//             Illustration: <img src={props.url} alt="new"/>
-//         </div>
-//     )
-// }
-
+//Card details passed via props. The image is also passed down as a GIF link.
 class ExerciseCard extends Component {
     constructor(props) {
         super(props);
@@ -66,13 +53,6 @@ class ExerciseCard extends Component {
                                 <td className="table-second-column-text">{this.props.exercise.exerciseprops}</td>
                             </tr>
                         </table>
-
-                        {/*<h6>English Name: {this.props.exercise.englishname}</h6>*/}
-                        {/*<h6>Exercise Group: {this.props.exercise.exerciseposition}</h6>*/}
-                        {/*<h6>Type: {this.props.exercise.exercisetype}</h6>*/}
-                        {/*<h6>Difficulty: {this.props.exercise.difficulty}</h6>*/}
-                        {/*<h6>Length: {this.props.exercise.minutes} Minutes</h6>*/}
-                        {/*<h6>Props: {this.props.exercise.exerciseprops}</h6>*/}
                     </div>
                 </div>
                 < div className="card card-back text-center border-secondary mb-3">
@@ -86,8 +66,6 @@ class ExerciseCard extends Component {
                     </div>
                 </div>
             </div>
-
-
         )
     }
 }

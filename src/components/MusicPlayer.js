@@ -1,3 +1,8 @@
+/**
+ * Component used for the youtube player. Its parent is MainArea.
+ * Note this file uses the YouTubeLinks JSON file to get the URLs
+ */
+
 import React, {Component} from 'react'
 import './ExerciseCard-Style.css'
 import ReactPlayer from "react-player"
@@ -9,20 +14,9 @@ class MusicCard extends Component {
         super(props);
     }
 
+    //The component chooses a random URL from the music type chosen by the user.
     render() {
         let randURL;
-        // let YouTubeLinksStringified = JSON.stringify(YouTubeLinks)
-
-        // console.log("YouTubeLinksStringified")
-        // console.log(YouTubeLinksStringified)
-        //
-        // console.log("YouTubeLinks.classicalyogastyle")
-        // console.log(YouTubeLinks.classicalyogastyle)
-        //
-        // console.log("YouTubeLinks.classicalyogastyle[0]")
-        // console.log(YouTubeLinks.classicalyogastyle[0])
-
-
         if (this.props.preference === "Disabled") {
             return null;
         } else if (this.props.preference === "Classicalyogastyle") {
@@ -34,6 +28,10 @@ class MusicCard extends Component {
         } else if (this.props.preference === "Nature") {
             randURL = YouTubeLinks.nature[Math.floor(Math.random() * YouTubeLinks.nature.length)];
         }
+
+        //Note the return specifies the volume to be 0.5 which is 50%. Controls allow the user to use the component
+        //as if it was straight out of youtube. Looping is technically not necessary as the chosen URLs are all
+        //infinite videos ("Live")
         return (
             <div className="music-container ">
                 <div className="music-title text-center">

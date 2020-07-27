@@ -1,18 +1,15 @@
-body{
-    background:radial-gradient(#e5e5e5, #ffff, #e5e5e5);
+body {
+    background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
 }
 
-.card-container{
+.card-container {
     position: relative;
-    /*width: 30rem;*/
     margin: 38px;
-    /*align-items: center;*/
-    /*min-height: 1100px;*/
     width: 420px;
     min-height: 600px;
 }
 
-.card-title{
+.card-title {
     font-size: 19px;
     padding: 10px;
     text-shadow: 1px 1px 1px black;
@@ -21,7 +18,7 @@ body{
     color: #2a0845;
 }
 
-.card-title-back{
+.card-title-back {
     padding: 10px;
     text-shadow: 1px 1px 1px black;
     overflow: revert;
@@ -29,24 +26,19 @@ body{
     color: #2a0845;
 }
 
-
-/*.card-container:hover{*/
-/*    box-shadow:5px 10px 20px 1px rgba(0,0,0,0.253)!important;*/
-/*}*/
-
-.card-container:hover .card-front{
+.card-container:hover .card-front {
     transform: rotateY(180deg);
 }
 
-.card-container:hover .card-back{
+.card-container:hover .card-back {
     transform: rotateY(0deg);
 }
 
-.card-back{
+.card-back {
     transform: rotateY(180deg);
 }
 
-.card{
+.card {
     outline: #6441a5 solid medium;
     position: absolute;
     transition: all 1.4s;
@@ -56,42 +48,40 @@ body{
     backface-visibility: hidden;
 }
 
-.card-img-top{
+.card-img-top {
     outline: #6441a5 solid medium;
 }
 
-.card-body{
+.card-body {
     padding: 3rem 0 !important;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.card-body-back{
-    /*padding: 3rem 0 !important;*/
+.card-body-back {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.card-description{
+.card-description {
     padding: 3rem 0 !important;
     margin-left: 20px;
-    /*margin-bottom: 20px;*/
     margin-right: 20px;
 }
 
-.card-text{
+.card-text {
     font-size: 0.9rem;
     padding: 0.4rem 1.9rem;
 }
 
 
-.container-fluid.row{
+.container-fluid.row {
     padding-top: 6rem;
 }
 
-.overflow{
+.overflow {
     padding-left: 20px;
     padding-right: 20px;
 }
