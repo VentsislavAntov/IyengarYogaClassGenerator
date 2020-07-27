@@ -1,0 +1,88 @@
+body {
+    background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
+}
+
+.card-container {
+    position: relative;
+    margin: 38px;
+    width: 420px;
+    min-height: 600px;
+}
+
+.card-title {
+    font-size: 19px;
+    padding: 10px;
+    text-shadow: 1px 1px 1px black;
+    overflow: revert;
+    white-space: nowrap;
+    color: #2a0845;
+}
+
+.card-title-back {
+    padding: 10px;
+    text-shadow: 1px 1px 1px black;
+    overflow: revert;
+    white-space: nowrap;
+    color: #2a0845;
+}
+
+.card-container:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card-container:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.card {
+    outline: #6441a5 solid medium;
+    position: absolute;
+    transition: all 1.4s;
+    background-color: beige;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.card-img-top {
+    outline: #6441a5 solid medium;
+}
+
+.card-body {
+    padding: 3rem 0 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card-body-back {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card-description {
+    padding: 3rem 0 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    padding: 0.4rem 1.9rem;
+}
+
+
+.container-fluid.row {
+    padding-top: 6rem;
+}
+
+.overflow {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
