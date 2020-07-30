@@ -1,3 +1,6 @@
+react-iyengar-yoga-generator is a react application that creates yoga classes with a given structure, but randomized exercises within its components.
+Separately, the app also provides the option for playing music from youtube live videos while exercising. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

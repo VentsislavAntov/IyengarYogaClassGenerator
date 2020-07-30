@@ -28,30 +28,32 @@ class ExerciseCard extends Component {
                     <div className="card-body text-dark text-lg-left">
 
                         <table>
-                            <tr>
-                                <td className="table-first-column-text">English Name:</td>
-                                <td className="table-second-column-text">{this.props.exercise.englishname}</td>
-                            </tr>
-                            <tr>
-                                <td className="table-first-column-text">Exercise Group:</td>
-                                <td className="table-second-column-text">{this.props.exercise.exerciseposition}</td>
-                            </tr>
-                            <tr>
-                                <td className="table-first-column-text">Type:</td>
-                                <td className="table-second-column-text">{this.props.exercise.exercisetype}</td>
-                            </tr>
-                            <tr>
-                                <td className="table-first-column-text">Difficulty:</td>
-                                <td className="table-second-column-text">{this.props.exercise.difficulty}</td>
-                            </tr>
-                            <tr>
-                                <td className="table-first-column-text">Length:</td>
-                                <td className="table-second-column-text">{this.props.exercise.minutes} minutes</td>
-                            </tr>
-                            <tr>
-                                <td className="table-first-column-text">Props:</td>
-                                <td className="table-second-column-text">{this.props.exercise.exerciseprops}</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td className="table-first-column-text">English Name:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.englishname}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table-first-column-text">Exercise Group:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.exerciseposition}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table-first-column-text">Type:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.exercisetype}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table-first-column-text">Difficulty:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.difficulty}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table-first-column-text">Length:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.minutes} minutes</td>
+                                </tr>
+                                <tr>
+                                    <td className="table-first-column-text">Props:</td>
+                                    <td className="table-second-column-text">{this.props.exercise.exerciseprops}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
