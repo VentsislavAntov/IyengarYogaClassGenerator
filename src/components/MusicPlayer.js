@@ -33,16 +33,23 @@ class MusicCard extends Component {
         //as if it was straight out of youtube. Looping is technically not necessary as the chosen URLs are all
         //infinite videos ("Live")
         return (
-            <div className="music-container ">
-                <div className="music-title text-center">
-                    Currently playing
-                    <div className="musicPlayer">
-                        <ReactPlayer url={randURL}
-                                     playing='true'
-                                     loop='true'
-                                     volume='0.5'
-                                     controls='true'/>
+            <div className="main-musicplayer">
+                <div className="music-container ">
+                    <div className="music-title text-center">
+                        Currently playing
+                        <div className="musicPlayer">
+                            <ReactPlayer url={randURL}
+                                         playing='true'
+                                         loop='true'
+                                         volume='0.5'
+                                         controls='true'/>
+                        </div>
                     </div>
+                </div>
+                <div className="disclaimer text-center">
+                    *YouTube video copyright use under YouTube's Fair Use law for non-profit educational material.
+                    <br/>
+                    *Note, if the video is not available, resubmit the form to try again.
                 </div>
             </div>
         )
