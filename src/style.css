@@ -71,11 +71,13 @@ html, body {
     min-width: 100%;
     color: white;
     background-color: #6441a5;
-    padding: 3em 1em;
+    padding-top: 30px;
+    padding-bottom: 10px;
     position: relative;
     bottom: 0;
     text-shadow: 1px 1px 2px black;
 }
+
 
 .dropdowns {
     font-size: 20px;
