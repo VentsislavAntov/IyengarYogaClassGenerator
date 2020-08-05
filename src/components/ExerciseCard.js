@@ -26,32 +26,31 @@ class ExerciseCard extends Component {
                             className="card-img-top"/>
                     </div>
                     <div className="card-body text-dark text-lg-left">
-
                         <table>
                             <tbody>
                                 <tr>
                                     <td className="table-first-column-text">English Name:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.englishname}</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.englishname}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-first-column-text">Exercise Group:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.exerciseposition}</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.exerciseposition}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-first-column-text">Type:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.exercisetype}</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.exercisetype}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-first-column-text">Difficulty:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.difficulty}</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.difficulty}</td>
                                 </tr>
                                 <tr>
                                     <td className="table-first-column-text">Length:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.minutes} minutes</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.minutes} minutes</td>
                                 </tr>
                                 <tr>
                                     <td className="table-first-column-text">Props:</td>
-                                    <td className="table-second-column-text">{this.props.exercise.exerciseprops}</td>
+                                    <td className="table-second-column-text text-left align-items-sm-start">{this.props.exercise.exerciseprops}</td>
                                 </tr>
                             </tbody>
                         </table>
