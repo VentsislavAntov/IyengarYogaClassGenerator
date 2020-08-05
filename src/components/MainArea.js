@@ -64,7 +64,7 @@ class MainArea extends Component {
         let propsPreference = this.state.propsPreference;
         let typePreference = this.state.typePreference;
         let difficultyPreference = this.state.difficultyPreference;
-        let lengthPreference = this.state.lengthPreference;
+        let lengthPreference;
         let siddhasanaExercise;
         let swastikasanaExercise;
         let tadasanaExercise;
@@ -73,6 +73,14 @@ class MainArea extends Component {
         let savasanaExercise;
         let sarvangasanaExercise;
         let elapsedTime = 0;
+
+        //None should be 30
+        if (this.state.lengthPreference === "none"){
+            lengthPreference = 30;
+        }
+        else{
+            lengthPreference = this.state.lengthPreference;
+        }
 
 // Upon each submit, the program gets all the exercises from the database allowing updates on the to be immediately reflected
         //(if they were to happen).
