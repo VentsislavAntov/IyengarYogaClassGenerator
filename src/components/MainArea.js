@@ -32,7 +32,7 @@ class MainArea extends Component {
     //from the pg-api program. The response comes as JSON.
     componentDidMount() {
         const that = this;
-        fetch('http://localhost:3001/api/exercises')
+        fetch('https://iyengaryoga-api.herokuapp.com/api/exercises')
             .then(function (response) {
                 response.json()
                     .then(function (data) {
@@ -84,7 +84,7 @@ class MainArea extends Component {
 
 // Upon each submit, the program gets all the exercises from the database allowing updates on the to be immediately reflected
         //(if they were to happen).
-        let request = new Request('http://localhost:3001/api/get-exercise', {
+        let request = new Request('https://iyengaryoga-api.herokuapp.com/api/get-exercise', {
             method: 'POST',
             headers: new Headers({'Content-Type': 'application/json'}),
         });
