@@ -50,6 +50,7 @@ body {
 }
 
 .card-img-top {
+    border-radius: 0px;
     outline: #6441a5 solid medium;
 }
 
@@ -83,7 +84,6 @@ body {
 }
 
 .overflow {
-    border-radius: 0px;
     padding-left: 20px;
     padding-right: 20px;
 }
