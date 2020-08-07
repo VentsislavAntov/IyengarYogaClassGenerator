@@ -28,8 +28,8 @@ class MainArea extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    //Special method used to load the data from the database onto the exercises array. Heroku uses port 80 by default
-    //from the pg-api program. The response comes as JSON.
+    //Special method used to load the data from the database onto the exercises array. Heroku link to other API app used here to connect.
+    // The response comes as JSON.
     componentDidMount() {
         const that = this;
         fetch('https://iyengaryoga-api.herokuapp.com/api/exercises')
