@@ -57,9 +57,10 @@ html, body {
 }
 
 .container-fluid-cards {
-    padding-left: 60px;
+    padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
+    border-radius: 0px;
 }
 
 .dropdown-label {
