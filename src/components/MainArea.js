@@ -465,7 +465,7 @@ class MainArea extends Component {
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-4">
-                            test
+                            <br/>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-4">
                             <div className="music">
