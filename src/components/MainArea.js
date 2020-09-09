@@ -351,7 +351,7 @@ class MainArea extends Component {
             <div className="AppMain">
                 <div className="container-fluid-form-and-music">
                     <div className="row">
-                        <div className="col-12 col-lg-4 align-items-center">
+                        <div className="col-12 col-lg-4 align-items-center embed-responsive">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
 
