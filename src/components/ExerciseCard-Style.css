@@ -3,7 +3,8 @@ body {
 }
 
 .card-container {
-    position: center;
+    align-items: center;
+    position: relative;
     margin: 38px;
     width: 420px;
     min-height: 600px;
