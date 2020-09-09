@@ -335,7 +335,7 @@ class MainArea extends Component {
     render() {
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
-                <div className="col-12 col-lg-4 justify-content-center">
+                <div className="col-sm-12 col-md-12 col-lg-6 col-xl-4 justify-content-center">
                     <div className="test-card">
                         <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
                                       key={exercise.exerciseid}/>
@@ -353,7 +353,7 @@ class MainArea extends Component {
             <div className="AppMain">
                 <div className="container-fluid-form-and-music">
                     <div className="row">
-                        <div className="col-sm-12 col-md-12 col-lg-6 align-items-center embed-responsive">
+                        <div className="col-sm-12 col-md-12 col-lg-12 col-xl-6 align-items-center">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
 
@@ -468,7 +468,7 @@ class MainArea extends Component {
                             </div>
                         </div>
 
-                        <div className="col-sm-12 col-md-12 col-lg-6">
+                        <div className="col-sm-12 col-md-12 col-lg-12 col-xl-6 ">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
