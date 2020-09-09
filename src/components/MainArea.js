@@ -468,7 +468,7 @@ class MainArea extends Component {
                             </div>
                         </div>
 
-                        <div className="col-12 col-lg-5 mw-100 embed-responsive">
+                        <div className="col-12 col-lg-5 mw-110">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
