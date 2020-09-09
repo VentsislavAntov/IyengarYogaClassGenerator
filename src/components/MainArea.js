@@ -467,17 +467,13 @@ class MainArea extends Component {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-1">
-                            <div className="container-empty">
-                                test
-                            </div>
-                        </div>
-                        <div className="col-12 col-lg-5 mw-100">
+
+                        <div className="col-12 col-lg-5 mw-100 embed-responsive">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-2">
+                        <div className="col-12 col-lg-3">
                             <br/>
                         </div>
                     </div>
