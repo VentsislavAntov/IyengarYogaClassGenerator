@@ -3,11 +3,10 @@ body {
 }
 
 .card-container {
-    border: 2px solid black;
-    /*align-content: center;*/
     justify-content: center;
     position: relative;
-    margin: 38px;
+    padding:15%;
+    margin-bottom: 40px;
     width: 420px;
     min-height: 600px;
 }
