@@ -336,8 +336,10 @@ class MainArea extends Component {
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
                 <div className="col-12 col-lg-4 align-items-center">
-                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
-                                  key={exercise.exerciseid}/>
+                    <div className="test-card">
+                        <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
+                                      key={exercise.exerciseid}/>
+                    </div>
                 </div>
             )
 
@@ -470,7 +472,7 @@ class MainArea extends Component {
                                 test
                             </div>
                         </div>
-                        <div className="col-12 col-lg-3 mw-100">
+                        <div className="col-12 col-lg-3 mw-50">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>

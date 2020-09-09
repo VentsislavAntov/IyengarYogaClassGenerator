@@ -58,7 +58,8 @@ html, body {
     margin-left: 50px;
 }
 .music{
-    max-width: 100%;
+    outline: #a71d2a solid thick;
+
 }
 
 .container-fluid-form-and-music {
@@ -113,6 +114,10 @@ html, body {
 .test{
     outline: #a71d2a solid thick;
     max-width: 100%;
+}
+
+.test-card{
+    outline: #a71d2a solid thick;
 }
 
 .music-container {
