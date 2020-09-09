@@ -56,9 +56,6 @@ body {
 
 .card-body {
     padding: 2rem 0 !important;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
 }
 
 .card-body-back {
@@ -69,8 +66,6 @@ body {
 
 .card-description {
     padding: 3rem 0 !important;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .card-text {

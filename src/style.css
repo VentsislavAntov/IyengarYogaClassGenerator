@@ -9,9 +9,9 @@ html, body {
     border: 2px solid rgba(112, 110, 110, 1);
     background: linear-gradient(90deg, #6250a5, #8180a5);
     padding: 10px;
-    padding-top: 20px;
-    padding-left: 85px;
-    padding-bottom: 45px;
+    margin-top: 20px;
+    margin-left: 85px;
+    margin-bottom: 45px;
     font-size: 30px;
     font-family: VT323, monospace;
     cursor: pointer;
@@ -49,11 +49,11 @@ html, body {
 
 .content-wrap {
     background: lavender;
-    padding-top: 30px;
+    margin-top: 30px;
 }
 
 .container-fluid-form-and-music {
-    padding-top: 15px;
+    margin-top: 15px;
 }
 
 .container-fluid-cards {
@@ -63,7 +63,7 @@ html, body {
 }
 
 .dropdown-label {
-    padding-right: 0px;
+    margin-right: 0px;
 }
 
 
@@ -81,7 +81,8 @@ html, body {
 
 .dropdowns {
     font-size: 20px;
-    padding: 40px;
+    padding: 10px;
+    margin-left: 65px;
     text-shadow: 1px 1px 1px black;
     color: #2a0845;
 }
@@ -99,7 +100,7 @@ html, body {
 .music-container {
     padding-left: 60px;
     position: relative;
-    padding-top: 30px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,8 +122,8 @@ html, body {
     white-space: nowrap;
     color: #2a0845;
     padding-left: 60px;
-    padding-top: 8px;
-    padding-bottom: 15px;
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 
 .form-title {
@@ -133,7 +134,7 @@ html, body {
 }
 
 .musicPlayer {
-    padding-top: 15px;
+    margin-top: 15px;
     outline: #6441a5 solid thick;
 }
 
@@ -182,8 +183,8 @@ table {
     width: 28%;
     outline: none;
     padding-bottom: 10em;
-    padding-left: 15px;
-    padding-top: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
 }
 
 th {
@@ -212,8 +213,8 @@ header > p {
     font-family: VT323, monospace;
     color: whitesmoke;
     font-size: 30px;
-    padding-left: 60px;
-    padding-right: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 
