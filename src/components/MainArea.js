@@ -335,9 +335,8 @@ class MainArea extends Component {
     render() {
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
-                <div className="col-sm-12 col-md-6 col-lg-4"> key={exercise.exerciseid}>
-                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
-                                  key={exercise.exerciseid}/>
+                <div className="col-sm-12 col-md-6 col-lg-4">
+                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)} key={exercise.exerciseid}/>
                 </div>
             )
         });
