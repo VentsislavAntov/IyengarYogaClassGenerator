@@ -57,6 +57,7 @@ html, body {
 }
 
 .container-fluid-cards {
+    outline: #a71d2a solid thick;
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
@@ -94,7 +95,7 @@ html, body {
 .form-select {
     background-color: beige;
     border-radius: 10px;
-    min-width: 200px;
+    /*min-width: 200px;*/
 }
 
 .container-empty {
