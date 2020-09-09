@@ -335,8 +335,9 @@ class MainArea extends Component {
     render() {
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
-                <div className="col-sm-12 col-md-6 col-lg-4">
-                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)} key={exercise.exerciseid}/>
+                <div className="col-12 col-lg-4">
+                    <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
+                                  key={exercise.exerciseid}/>
                 </div>
             )
         });
@@ -349,7 +350,7 @@ class MainArea extends Component {
             <div className="AppMain">
                 <div className="container-fluid-form-and-music">
                     <div className="row">
-                        <div className="col-sm-12 col-md-12 col-lg-4">
+                        <div className="col-12 col-lg-4">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
 
@@ -463,17 +464,20 @@ class MainArea extends Component {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-12 col-lg-4">
+                        <div className="col-12 col-lg-4">
                             <br/>
                         </div>
-                        <div className="col-sm-12 col-md-12 col-lg-4">
+                        <div className="col-12 col-lg-3">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
                         </div>
+                        <div className="col-12 col-lg-1">
+                            <br/>
+                        </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-12 col-md-12 col-lg-12">
+                        <div className="col-12">
                             <div className="container-fluid-cards d-flex justify-content-center">
                                 <div className="row">
                                     {exerciseCards}
