@@ -13,7 +13,7 @@ class ExerciseCard extends Component {
 
     render() {
         return (
-            <div className="card-container">
+            <div className="card-container align-content-center">
                 < div className="card card-front text-center border-secondary mb-3">
                     <div className="card-title">
                         {this.props.number + 1 + ". " + this.props.exercise.sanskritname}

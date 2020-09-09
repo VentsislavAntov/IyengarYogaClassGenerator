@@ -3,6 +3,7 @@ body {
 }
 
 .card-container {
+    align-content: center;
     position: relative;
     margin: 38px;
     width: 420px;

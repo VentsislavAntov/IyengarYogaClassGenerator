@@ -99,7 +99,7 @@ html, body {
 .form-select {
     background-color: beige;
     border-radius: 10px;
-    /*min-width: 200px;*/
+    min-width: 200px;
 }
 
 .container-empty {
