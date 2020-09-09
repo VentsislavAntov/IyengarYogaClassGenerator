@@ -335,7 +335,7 @@ class MainArea extends Component {
     render() {
         let exerciseCards = this.state.userExercises.map(exercise => {
             return (
-                <div className="col-12 justify-content-center" align="center">
+                <div className="col-12 justify-content-center">
                     <div className="test">
                         <ExerciseCard exercise={exercise} number={this.state.userExercises.indexOf(exercise)}
                                       key={exercise.exerciseid}/>
@@ -350,7 +350,7 @@ class MainArea extends Component {
         // like a better choice to keep it all together here instead of in new components.
         return (
             <div className="AppMain">
-                <div className="container-fluid-form-and-music">
+                <div className="container-fluid-form-and-music embed-responsive">
                     <div className="row">
                         <div className="col-12 col-lg-4 align-items-center">
                             <div className="content-wrap">
