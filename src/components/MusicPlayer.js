@@ -33,7 +33,7 @@ class MusicCard extends Component {
         //as if it was straight out of youtube. Looping is technically not necessary as the chosen URLs are all
         //infinite videos ("Live")
         return (
-            <div className="main-musicplayer">
+            <div className="main-musicplayer embed-responsive">
                 <div className="music-container ">
                     <div className="music-title text-center">
                         Currently playing
