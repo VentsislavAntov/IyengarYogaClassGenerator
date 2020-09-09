@@ -350,7 +350,7 @@ class MainArea extends Component {
             <div className="AppMain">
                 <div className="container-fluid-form-and-music">
                     <div className="row">
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12 col-lg-4 align-items-center">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
 
@@ -480,7 +480,7 @@ class MainArea extends Component {
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <div className="container-fluid-cards d-flex align-items-center">
+                            <div className="container-fluid-cards align-items-center d-flex ">
                                 <div className="row">
                                     {exerciseCards}
                                 </div>
