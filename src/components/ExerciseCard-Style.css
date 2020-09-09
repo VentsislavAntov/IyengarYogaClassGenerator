@@ -3,6 +3,7 @@ body {
 }
 
 .card-container {
+    outline: #dc3545 solid medium;
     align-content: center;
     position: relative;
     margin: 38px;

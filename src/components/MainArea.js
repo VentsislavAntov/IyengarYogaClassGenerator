@@ -470,7 +470,7 @@ class MainArea extends Component {
                                 test
                             </div>
                         </div>
-                        <div className="col-12 col-lg-3">
+                        <div className="col-12 col-lg-3 mw-100">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
