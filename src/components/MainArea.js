@@ -471,7 +471,7 @@ class MainArea extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-1 col-md-3 col-lg-4">
+                        <div className="col-sm-12 col-md-12 col-lg-12">
                             <div className="container-fluid-cards d-flex justify-content-center">
                                 <div className="row">
                                     {exerciseCards}
