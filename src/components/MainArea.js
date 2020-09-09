@@ -350,7 +350,7 @@ class MainArea extends Component {
             <div className="AppMain">
                 <div className="container-fluid-form-and-music">
                     <div className="row">
-                        <div className="col-sm-4">
+                        <div className="col-sm-12 col-md-6 col-lg-6">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
 
@@ -464,14 +464,14 @@ class MainArea extends Component {
                                 </form>
                             </div>
                         </div>
-                        <div className="col-sm-8">
+                        <div className="col-sm-12 col-md-6 col-lg-6">
                             <div className="music">
                                 <MusicPlayer preference={this.state.musicPreferenceTrigger}/>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-12">
+                        <div className="col-sm-1 col-md-3 col-lg-4">
                             <div className="container-fluid-cards d-flex justify-content-center">
                                 <div className="row">
                                     {exerciseCards}
