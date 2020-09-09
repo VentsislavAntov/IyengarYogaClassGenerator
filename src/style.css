@@ -97,6 +97,10 @@ html, body {
     min-width: 200px;
 }
 
+.container-empty {
+    outline: #a71d2a solid thick;
+}
+
 .music-container {
     padding-left: 60px;
     position: relative;
