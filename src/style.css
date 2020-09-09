@@ -48,8 +48,13 @@ html, body {
 }
 
 .content-wrap {
+    max-width: 100%;
     background: lavender;
     margin-top: 30px;
+}
+
+.music{
+    max-width: 100%;
 }
 
 .container-fluid-form-and-music {
@@ -57,7 +62,6 @@ html, body {
 }
 
 .container-fluid-cards {
-    outline: #a71d2a solid thick;
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 30px;
@@ -100,7 +104,11 @@ html, body {
 
 .container-empty {
     min-height: 300px;
+}
+
+.test{
     outline: #a71d2a solid thick;
+    max-width: 100%;
 }
 
 .music-container {
