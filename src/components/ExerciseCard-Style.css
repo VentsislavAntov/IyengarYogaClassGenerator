@@ -50,6 +50,7 @@ body {
 }
 
 .card-img-top {
+    border-radius: 0px;
     outline: #6441a5 solid medium;
 }
 
