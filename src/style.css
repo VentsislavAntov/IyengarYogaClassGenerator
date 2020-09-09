@@ -98,6 +98,7 @@ html, body {
 }
 
 .container-empty {
+    min-height: 300px;
     outline: #a71d2a solid thick;
 }
 
