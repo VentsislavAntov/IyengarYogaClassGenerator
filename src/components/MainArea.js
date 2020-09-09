@@ -340,6 +340,7 @@ class MainArea extends Component {
                                   key={exercise.exerciseid}/>
                 </div>
             )
+            
         });
 
 
