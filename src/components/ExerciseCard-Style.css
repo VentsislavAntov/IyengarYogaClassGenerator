@@ -4,7 +4,7 @@ body {
 
 .card-container {
     position: relative;
-    padding: 38px;
+    margin: 38px;
     width: 420px;
     min-height: 600px;
 }
@@ -50,22 +50,26 @@ body {
 }
 
 .card-img-top {
-    border-radius: 0px;
     outline: #6441a5 solid medium;
 }
 
 .card-body {
     padding: 2rem 0 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .card-body-back {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .card-description {
     padding: 3rem 0 !important;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .card-text {
@@ -79,6 +83,7 @@ body {
 }
 
 .overflow {
+    border-radius: 0px;
     padding-left: 20px;
     padding-right: 20px;
 }
