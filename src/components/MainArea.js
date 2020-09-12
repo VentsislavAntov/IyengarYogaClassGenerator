@@ -191,7 +191,7 @@ class MainArea extends Component {
 
 //Separately, the exercises need to be split by "position" in order to make a balanced class. Each position type has
         //an equal proportion of time from the total time, the lengthPreference, minus all the exercises that are "fixed".
-        //Or 1/6th of that. Local variables for the method customFilter of the arrays from before need to be created
+        //Or 1/6th of that. These fixed exercises have already been added to elapsed time. Local variables for the method customFilter of the arrays from before need to be created
         //which will be filtered again by position.
         let timeToSplit = lengthPreference - sarvangasanaExercise.minutes - savasanaExercise.minutes - firstExercise.minutes;
         let allExercisesDifficultyTypePropsFilterLocal;
@@ -199,11 +199,11 @@ class MainArea extends Component {
         let allExercisesDifficultyFilterLocal;
         let allExercisesLocal;
 
-        while ((timeToSplit / 6) > (elapsedTime - firstExercise.minutes)) {
+        while ((timeToSplit / 6) > (elapsedTime)) {
             customFilter('Standing Backwards Extension');
         }
 
-        while (((timeToSplit / 6) * 2) > (elapsedTime - firstExercise.minutes)) {
+        while (((timeToSplit / 6) * 2) > (elapsedTime)) {
             customFilter('Standing Forward Bend');
         }
 
@@ -215,19 +215,19 @@ class MainArea extends Component {
             }
         });
 
-        while (((timeToSplit / 6) * 3) > (elapsedTime - firstExercise.minutes)) {
+        while (((timeToSplit / 6) * 3) > (elapsedTime)) {
             customFilter('Seated Twist');
         }
 
-        while (((timeToSplit / 6) * 4) > (elapsedTime - firstExercise.minutes)) {
+        while (((timeToSplit / 6) * 4) > (elapsedTime)) {
             customFilter('Seated Forward Bend');
         }
 
-        while (((timeToSplit / 6) * 5) > (elapsedTime - firstExercise.minutes)) {
+        while (((timeToSplit / 6) * 5) > (elapsedTime)) {
             customFilter('Seated Other');
         }
 
-        while ((timeToSplit) > (elapsedTime - firstExercise.minutes)) {
+        while ((timeToSplit) > (elapsedTime)) {
             customFilter('Prone/Supine');
         }
 
@@ -354,12 +354,10 @@ class MainArea extends Component {
                         <div className="col-sm-12 col-md-12 col-lg-12 col-xl-6 align-items-center">
                             <div className="content-wrap">
                                 <form className="yogaClass-form" onSubmit={this.handleSubmit}>
-
                                     <div className="dropdowns">
                                         <div className="form-title">
                                             Preferences
                                         </div>
-
                                         <table className="table-custom">
                                             <tbody>
                                             <tr className="tr-custom">
